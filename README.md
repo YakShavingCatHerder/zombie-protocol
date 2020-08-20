@@ -1,15 +1,12 @@
 # Zombie Protocol 
-![](https://i.imgur.com/NAdDPod.jpg)
+![](https://i.imgur.com/JJpiT1Y.jpg)
 #### *I want your fomo hand*
-　  
    　  
 -----
 #### No Pre-mine, No Founder Fee, No Friends
 #### ~~Pubg~~ winner take all!
-　
 -----
 　  
-   
 ## The Protocol
 Zombie is a social experiment game, you can see the true side of humanity only at the moment of domination. You only need 1 $BTC and 1 $ZOMBIE when the world is going to end. Zombie is designed to see the true face of your friend and if you understand the rules, you can play to the end.
 
@@ -20,7 +17,7 @@ The $ZOMBIE token combines a simplified version of Ampleforth’s economic polic
 Do you know who is your true friend? Who can help you when fleeing? We no longer need a bunch of tokens that in defi list, we only need BTC + ZOMBIE. Especially when fleeing...
 
 
-![](https://i.imgur.com/2G0YvCf.png)
+![](https://i.imgur.com/aIeonHV.png)
 **~~This time, we will really see a $100 coin~~**
 
 
