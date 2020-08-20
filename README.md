@@ -4,12 +4,12 @@
    　  
 -----
 #### No Pre-mine, No Founder Fee, No Friends
-#### ~~Pubg~~ winner take all!
+#### ~~PUBG~~ winner take all!
 
 ## The Protocol
 Zombie is a social experiment game, you can see the true side of humanity only at the moment of domination. You only need 1 $BTC and 1 $ZOMBIE when the world is going to end. Zombie is designed to see the true face of your friend and if you understand the rules, you can play to the end.
 
-The $ZOMBIE token combines a simplified version of Ampleforth’s economic policy with YFI’s distribution mechanism, finally we added pubg’s poison circle mechanism! Do you think your companion will save you?
+The $ZOMBIE token combines a simplified version of Ampleforth’s economic policy with YFI’s distribution mechanism, finally we added PUBG’s poison circle mechanism! Do you think your companion will save you?
 
 ## The world is shrinking
 
