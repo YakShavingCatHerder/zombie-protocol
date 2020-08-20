@@ -28,7 +28,7 @@ At core, $ZOMBIE is a shrinking-only supply cryptocurrency, which only **contrac
 ## Community Launch & Token Distribution
 The $ZOMBIE token has 4 separate staking pools.
 
-Token Amount: 306,780 $ZOMBIE
+Total supply: 306,780 $ZOMBIE  
 Token Distribution:
 * Dai pool: 35% 　　　　　- 107,373 $ZOMBIE
 * Uniswap LP pool: 40%　 - 122,712 $ZOMBIE
