@@ -5,8 +5,7 @@
 -----
 #### No Pre-mine, No Founder Fee, No Friends
 #### ~~Pubg~~ winner take all!
------
-　  
+
 ## The Protocol
 Zombie is a social experiment game, you can see the true side of humanity only at the moment of domination. You only need 1 $BTC and 1 $ZOMBIE when the world is going to end. Zombie is designed to see the true face of your friend and if you understand the rules, you can play to the end.
 
