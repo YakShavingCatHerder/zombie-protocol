@@ -22,7 +22,7 @@ Do you know who is your true friend? Who can help you when fleeing? We no longer
 
 At core, $ZOMBIE is a shrinking-only supply cryptocurrency, which only **contracts** its supply in response to market conditions, initially targeting 100 USD per $ZOMBIE. 
 
-> If the $ZOMBIE price does not reach $100, contracts rebase will be carried out every 24 hours, and after each rebase, **if your account's zombie balace not over then 1 $ZOMBIE, it will be permanently locked.**
+> If the $ZOMBIE price does not reach $100, contracts rebase will be carried out every 24 hours, and after each rebase, **if your account's zombie balace not over then 1 $ZOMBIE, your $ZOMBIE will be permanently burned.**
 
 
 ## Community Launch & Token Distribution
@@ -68,7 +68,7 @@ The only rule of $ZOMBIE is that no one can change the rules. There are no owner
 * Week 1: Tokens Distrubuted
 * Week 2: Tokens Distrubuted
 * Week 2: Tokens Claimed Period
-* Week 3: Doomsday clock starts to count(Pubg Started)
+* Week 3: Doomsday clock starts to count(Pubg Start)
 
 ## Governance
 ? There is no government, the world is destroyed...
