@@ -33,24 +33,28 @@ if(_zombieBalances[who].mul(zombieScalingFactor).div(internalDecimals) < 1e18){
 The $ZOMBIE token has 4 separate staking pools.
 
 Total supply: 306,780 $ZOMBIE  
+Token Distribution Period: 10 Weeks
+Token Distribution starts at: 2020/08/24 10:00:00 (UTC+0)
 Token Distribution:
-* Dai pool: 35% 　　　　　- 107,373 $ZOMBIE
-* Uniswap LP pool: 40%　 - 122,712 $ZOMBIE
-* Dice pool: 10% 　　　　 - 30,678 $ZOMBIE
-* Shrimp pool: 15%  　　　- 46,017 $ZOMBIE
+* Dai pool: 35% 　　　　　　　　　　　　　- 107,373 $ZOMBIE
+* Uniswap Dai-Zombie LP pool: 35% 　　　- 107,373 $ZOMBIE
+* Dice pool: 10% 　　　　　　　　　　　　 - 30,678 $ZOMBIE
+* Uniswap Eth-Shrimp LP pool: 20%  　　　- 61,356 $ZOMBIE
 
 
 #### Pool 0 - Dai pool
 > yields the initial $ZOMBIE token supply. To join this pool, you need to stake $DAI through the Zombie application.
 
-#### Pool 1 - Uniswap LP pool pool
+#### Pool 1 - Uniswap Zombie LP pool
 > To join this pool, you must stake  DAIZOMBIE-V2 LP tokens that can be acquired by depositing $ZOMBIE and $DAI into the $ZOMBIE Uniswap pool.
+> 
+> *This pool will be opened two hours later after Farming is turned on.*
 
-#### Pool 2 - Shrimp pool
+#### Pool 2 - Uniswap Shrimp LP pool
 > 🚨🚨 Shrimp Unite!
 >  🦐 Shrimp is a community that gathers all investors. We share the latest Pump tokens and collectively discuss the latest DeFi technology!
 >  
-> To join this pool, you must stake $SHRIMP tokens.
+> To join this pool, you must stake  ETHSHRIMP-V2 LP tokens that can be acquired by depositing $SHRIMP and $ETH into the $SHRIMP Uniswap pool. [Uniswap Link](https://app.uniswap.org/#/add/0x38c4102d11893351ced7ef187fcf43d33eb1abe6/ETH)
 
 #### Pool 3 - Dice pool
 > 🎲 DICE.FINANCE Is A Fully Decentralized Protocol For Casino On Ethereum. An unstoppable bankroll drives casino for thousands of users and hundreds of applications.
@@ -59,20 +63,29 @@ Token Distribution:
 
 ***In order to motivate early players, the first 72 hours of $ZOMBIE reward will be doubled.***
 
-Rebases will not be available until 95% of the total token supply is claimed. This period of time is a minimum of two weeks, but since this requires the community to claim their tokens through the zombie application, it could take up to a maximum of 3 weeks.
-
-
 
 ## The developer
-Contracts creator address: TBD
+$ZOMBIE ERC20 Address: [LINK](https://etherscan.io/token/0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8)  
+Pool 0 - Allocation transaction：Not yet allocated  
+Pool 1 - Allocation transaction：Not yet allocated  
+Pool 2 - Allocation transaction：Not yet allocated  
+Pool 3 - Allocation transaction：Not yet allocated
 
-The only rule of $ZOMBIE is that no one can change the rules. There are no owners, and because the private keys have been burned, the contracts cannot be changed. This makes an exit scam impossible.
+There is no mint function in $ZOMBIE ERC20, the total amount of $zombie is fixed, even vitalik can’t change, please don’t ask dev to burn the admin key🙆‍♂️
 
 ## Countdown to the end of the world
-* Week 1: Tokens Distrubuted
-* Week 2: Tokens Distrubuted
-* Week 2: Tokens Claimed Period
-* Week 3: Doomsday clock starts to count(Pubg Start)
+* Week 1: Tokens Distrubuted(8/24 ~ 8/31)
+* Week 2: Tokens Distrubuted(8/31 ~ 9/7)
+* Week 3: Tokens Distrubuted(9/7 ~ 9/14)
+* Week 4: Tokens Distrubuted(9/14 ~ 9/21)
+* Week 5: Tokens Distrubuted + Doomsday clock starts to count(9/21 ~ 9/28)
+* Week 6: Tokens Distrubuted(9/28 ~ 10/5)
+* Week 7: Tokens Distrubuted(10/5 ~ 10/12)
+* Week 8: Tokens Distrubuted(10/12 ~ 10/19)
+* Week 9: Tokens Distrubuted(10/19 ~ 10/26)
+* Week 10: Tokens Distrubuted(10/26 ~ 11/2)
+
+***Doomsday clock starts to count at: 2020/09/21 10:00:00 (UTC+0)**
 
 ## Governance
 ? There is no government, the world is destroyed...
