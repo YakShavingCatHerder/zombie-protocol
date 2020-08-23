@@ -27,7 +27,7 @@ const Farms: React.FC = () => {
           {/* <Route exact path={path}> */}
             <PageHeader
               icon={<img src={farmer} height="96" />}
-              subtitle="Earn ZOMBIEs tokens by providing liquidity."
+              subtitle="Earn $ZOMBIE token by providing liquidity."
               title="Select a zombie swarm."
             />
             <FarmCards />
