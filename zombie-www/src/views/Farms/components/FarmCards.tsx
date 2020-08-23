@@ -97,7 +97,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               <CardIcon>{farm.icon}</CardIcon>
               <StyledTitle>{farm.name}</StyledTitle>
               <StyledDetails>
-                <StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail>
+              {farm.depositToken.toUpperCase() !== "SHRIMP" && farm.depositToken.toUpperCase() !== "UNI" && <StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail>}
+
+                {farm.depositToken.toUpperCase() === "SHRIMP" && <StyledDetail>Deposit ETH_SHRIMP_UNISWAP_LP</StyledDetail>}
+                {farm.depositToken.toUpperCase() === "UNI" && <StyledDetail>Deposit DAI_ZOMBIE_UNISWAP_LP</StyledDetail>}
+
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
               {/* {Date.now() > endTime * 1000 ? (

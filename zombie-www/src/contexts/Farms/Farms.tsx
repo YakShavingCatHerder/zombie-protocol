@@ -16,8 +16,8 @@ const NAME_FOR_POOL: { [key: string]: string } = {
   // eth_pool: 'Weth Homestead',
   // cream_pool: 'Modgie streams',
   // comp_pool: 'Compounding Hills',
-  dice_pool: 'Safe Haven',
-  uni_pool: 'DAI_SHRIMP_UNI_LP',
+  dice_pool: 'Safe haven',
+  uni_pool: 'Zombies army',
   shrimp_pool: 'Undead shrimps',
   dai_pool: 'Dai another day'
   // taco_pool: 'Taco Tuesday'

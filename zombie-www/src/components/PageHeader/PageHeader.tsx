@@ -10,7 +10,9 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({ icon, subtitle, title }) => {
   return (
     <StyledPageHeader>
-      <StyledIcon>{icon}</StyledIcon>
+      {/* <StyledIcon>{icon}</StyledIcon> */}
+      {icon === "aa" && <img style={{width:"85px"}} src="https://zombie.finance/logo2.png"/>}
+      {icon !== "aa" && <StyledIcon>{icon}</StyledIcon>}
       <StyledTitle>{title}</StyledTitle>
       <StyledSubtitle>{subtitle}</StyledSubtitle>
     </StyledPageHeader>
