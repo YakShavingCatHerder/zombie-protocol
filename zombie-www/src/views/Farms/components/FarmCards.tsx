@@ -100,14 +100,14 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 <StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail>
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
-              {Date.now() > endTime * 1000 ? (
-                <>
+              {/* {Date.now() > endTime * 1000 ? (
+                <> */}
                   <Button
                     disabled={!poolActive}
-                    text={poolActive ? 'Remove Liquidity' : undefined}
+                    text={poolActive ? 'Select' : undefined}
                     to={`/farms/${farm.id}`}
                   />
-                </>
+                {/* </>
               )
                 : (<>
                   <a href={`/farms/${farm.id}`} style={{ textDecoration: 'none', width: '100%' }}>
@@ -129,7 +129,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                     </Button>
                   </a>
                 </>
-                )}
+                )} */}
             </StyledContent>
           </CardContent>
         </Card>

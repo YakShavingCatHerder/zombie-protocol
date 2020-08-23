@@ -17,8 +17,9 @@ const NAME_FOR_POOL: { [key: string]: string } = {
   // cream_pool: 'Modgie streams',
   // comp_pool: 'Compounding Hills',
   dice_pool: 'Safe Haven',
-  uni_pool: 'WETH_SHRIMP_UNI_LP',
-  shrimp_pool: 'Undead shrimps'
+  uni_pool: 'DAI_SHRIMP_UNI_LP',
+  shrimp_pool: 'Undead shrimps',
+  dai_pool: 'Dai another day'
   // taco_pool: 'Taco Tuesday'
 }
 
@@ -31,8 +32,8 @@ const ICON_FOR_POOL: { [key: string]: string } = {
   // comp_pool: '💸',
   dice_pool: '🎲',
   uni_pool: '🌈',
-  shrimp_pool: '🦐'
-
+  shrimp_pool: '🦐',
+  dai_pool: '🛡'
   // taco_pool: '🌮',
 }
 
@@ -46,7 +47,8 @@ const SORT_FOR_POOL: { [key: string]: number } = {
   // comp_pool: 6,
   dice_pool: 0,
   uni_pool: 1,
-  shrimp_pool: 2
+  shrimp_pool: 2,
+  dai_pool: 3
 }
 
 const Farms: React.FC = ({ children }) => {
