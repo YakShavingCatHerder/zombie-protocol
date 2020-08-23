@@ -63,9 +63,6 @@ Token Distribution:
 
 ***In order to motivate early players, the first 72 hours of $ZOMBIE reward will be doubled.***
 
-Rebases will not be available until 95% of the total token supply is claimed. This period of time is a minimum of two weeks, but since this requires the community to claim their tokens through the zombie application, it could take up to a maximum of 3 weeks.
-
-
 
 ## The developer
 $ZOMBIE ERC20 Address: [LINK](https://etherscan.io/token/0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8)  
