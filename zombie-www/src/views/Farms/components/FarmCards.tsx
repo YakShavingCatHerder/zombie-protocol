@@ -107,17 +107,17 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
-              {!poolActive ?
+              {/* {!poolActive ? */}
               <>
               <Button
-                    disabled={!poolActive}
-                    text={poolActive ? 'Select' : undefined}
+                    disabled={false}
+                    text={'Select'}
                     to={`/farms/${farm.id}`}
                   >
               <Countdown date={Number(startTime * 1000)} renderer={renderer} />
               </Button>
               </>
-                :
+                {/* :
                 <>
                 {Date.now() > endTime * 1000 ? (
                   <> 
@@ -131,14 +131,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                   : (<>
                     <a href={`/farms/${farm.id}`} style={{ textDecoration: 'none', width: '100%' }}>
                       <Button
-                        disabled={start_static_eight > Date.now() ? poolActive : !poolActive}
+                        disabled={!poolActive}
                         text={poolActive ? '' : undefined}
                         to={`/farms/${farm.id}`}
                       >
-                      {farm.name === 'Zombies army' ? 
-                      <Countdown date={Number(start_static_eight)} renderer={renderer} />
-                      :
-                      <>
+                      
                         {900000 > Number(endTime * 1000) &&
                           <span style={{ color: 'red', marginLeft: '33%' }} >
                             <Countdown date={Number(endTime * 1000)} renderer={renderer} />
@@ -147,14 +144,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                         {900000 < Number(endTime * 1000) &&
                           <Countdown date={Number(endTime * 1000)} renderer={renderer} />
                         }
-                        </>
-                      }
+                        
                       </Button>
                     </a>
                   </>
                   )}
                   </>
-              }
+              } */}
               
             </StyledContent>
           </CardContent>
