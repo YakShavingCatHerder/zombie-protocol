@@ -72,11 +72,13 @@ Token Distribution:
 
 
 ## The developer
-$ZOMBIE ERC20 Address: [LINK](https://etherscan.io/token/0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8)  
-Pool 0 - Allocation transaction：Not yet allocated  
-Pool 1 - Allocation transaction：Not yet allocated  
-Pool 2 - Allocation transaction：Not yet allocated  
-Pool 3 - Allocation transaction：Not yet allocated
+$ZOMBIE ERC20 Address: [0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8](https://etherscan.io/token/0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8)  
+Pool - Dai - Allocation transaction：[0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe](https://etherscan.io/tx/0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe)  
+Pool - Shrimp - Allocation transaction：[0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42](https://etherscan.io/tx/0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42)  
+Pool - Eth-Shrimp  - Allocation transaction：[0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026](https://etherscan.io/tx/0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026)  
+Pool - Dice - Allocation transaction：[0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb](https://etherscan.io/tx/0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb)  
+Pool - Eth-Dice - Allocation transaction：[0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9](https://etherscan.io/tx/0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9)  
+Pool - Dai-Zombie - Allocation transaction：Not yet allocated  
 
 There is no mint function in $ZOMBIE ERC20, the total amount of $zombie is fixed, even vitalik can’t change, please don’t ask dev to burn the admin key🙆‍♂️
 
