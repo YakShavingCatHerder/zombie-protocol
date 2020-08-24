@@ -36,8 +36,8 @@ Total supply: 306,780 $ZOMBIE
 Token Distribution Period: 10 Weeks  
 Token Distribution starts at: 2020/08/24 10:00:00 (UTC+0)  
 Token Distribution:
-* Dai pool: 25% 　　　　　　　　　　　　　　- 76,695 $ZOMBIE
-* Uniswap Dai-Zombie LP pool: 30% 　　　　- 92,034 $ZOMBIE
+* Dai pool: 20% 　　　　　　　　　　　　　　- 61,356 $ZOMBIE
+* Uniswap Dai-Zombie LP pool: 35% 　　　　- 107,373 $ZOMBIE
 * Dice pool: 5% 　　 　　 　　 　　 　　　　　　 - 15,339 $ZOMBIE
 * Uniswap Eth-Dice LP pool: 10% 　　　　　　　 - 30,678 $ZOMBIE
 * Shrimp pool: 5%  　　　　　　　　　　　　　　- 15,339 $ZOMBIE
