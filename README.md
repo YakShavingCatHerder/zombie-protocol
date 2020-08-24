@@ -30,7 +30,7 @@ if(_zombieBalances[who].mul(zombieScalingFactor).div(internalDecimals) < 1e18){
 ```
 
 ## Community Launch & Token Distribution
-The $ZOMBIE token has 4 separate staking pools.
+The $ZOMBIE token has 7 separate staking pools.
 
 Total supply: 306,780 $ZOMBIE  
 Token Distribution Period: 10 Weeks  
@@ -78,7 +78,7 @@ Pool - Shrimp - Allocation transaction：[0x205844fdf669c1177de198c456f25866063c
 Pool - Eth-Shrimp  - Allocation transaction：[0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026](https://etherscan.io/tx/0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026)  
 Pool - Dice - Allocation transaction：[0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb](https://etherscan.io/tx/0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb)  
 Pool - Eth-Dice - Allocation transaction：[0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9](https://etherscan.io/tx/0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9)  
-Pool - Dai-Zombie - Allocation transaction：Not yet allocated  
+Pool - Dai-Zombie - Allocation transaction：[0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3](https://etherscan.io/tx/0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3)  
 
 There is no mint function in $ZOMBIE ERC20, the total amount of $zombie is fixed, even vitalik can’t change, please don’t ask dev to burn the admin key🙆‍♂️
 
