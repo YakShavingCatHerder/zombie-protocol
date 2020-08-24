@@ -36,30 +36,37 @@ Total supply: 306,780 $ZOMBIE
 Token Distribution Period: 10 Weeks  
 Token Distribution starts at: 2020/08/24 10:00:00 (UTC+0)  
 Token Distribution:
-* Dai pool: 35% 　　　　　　　　　　　　　- 107,373 $ZOMBIE
-* Uniswap Dai-Zombie LP pool: 35% 　　　- 107,373 $ZOMBIE
-* Uniswap Eth-Dice LP pool: 10% 　　　　 - 30,678 $ZOMBIE
-* Uniswap Eth-Shrimp LP pool: 20%  　　　- 61,356 $ZOMBIE
+* Dai pool: 25% 　　　　　　　　　　　　　　- 76,695 $ZOMBIE
+* Uniswap Dai-Zombie LP pool: 30% 　　　　- 92,034 $ZOMBIE
+* Dice pool: 5% 　　 　　 　　 　　 　　　　　　 - 15,339 $ZOMBIE
+* Uniswap Eth-Dice LP pool: 10% 　　　　　　　 - 30,678 $ZOMBIE
+* Shrimp pool: 5%  　　　　　　　　　　　　　　- 15,339 $ZOMBIE
+* Uniswap Eth-Shrimp LP pool: 20%  　　　　　　- 61,356 $ZOMBIE
+* World of tokens LP pool: 5%  　 　 　　 　　 　　　- 15,339 $ZOMBIE
 
 
-#### Pool 0 - Dai pool
+#### Pool - Dai pool
 > yields the initial $ZOMBIE token supply. To join this pool, you need to stake $DAI through the Zombie application.
 
-#### Pool 1 - Uniswap Zombie LP pool
+#### Pool - Uniswap Zombie LP pool
 > To join this pool, you must stake  DAIZOMBIE-V2 LP tokens that can be acquired by depositing $ZOMBIE and $DAI into the $ZOMBIE Uniswap pool.
 > 
 > *This pool will be opened two hours later after Farming is turned on.*
 
-#### Pool 2 - Uniswap Shrimp LP pool
+#### Pool - Shrimp, Uniswap Shrimp LP pool
 > 🚨🚨 Shrimp Unite!
 >  🦐 Shrimp is a community that gathers all investors. We share the latest Pump tokens and collectively discuss the latest DeFi technology!
 >  
 > To join this pool, you must stake  ETHSHRIMP-V2 LP tokens that can be acquired by depositing $SHRIMP and $ETH into the $SHRIMP Uniswap pool. [Uniswap Link](https://app.uniswap.org/#/add/0x38c4102d11893351ced7ef187fcf43d33eb1abe6/ETH)
 
-#### Pool 3 - Uniswap Dice LP pool
+#### Pool - Dice, Uniswap Dice LP pool
 > 🎲 DICE.FINANCE Is A Fully Decentralized Protocol For Casino On Ethereum. An unstoppable bankroll drives casino for thousands of users and hundreds of applications.
 > 
 > To join this pool, you must stake  ETHDICE-V2 LP tokens that can be acquired by depositing $DICE and $ETH into the $DICE Uniswap pool. [Uniswap Link](https://app.uniswap.org/#/add/ETH/0xcf67ced76e8356366291246a9222169f4dbdbe64)
+
+#### Pool - World of tokens LP pool
+>This pool will support many currencies on Balancer, and will be presented in 95/5 ZOMBIE. Currently supported plans: YFI/ZOMBIE, CURVE/ZOMBIE  
+>The world pool will be presented at 2020/08/24 10:00:00 UTC+0
 
 ***In order to motivate early players, the first 72 hours of $ZOMBIE reward will be doubled.***
 
