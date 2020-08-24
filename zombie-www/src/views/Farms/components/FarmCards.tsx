@@ -50,7 +50,9 @@ const FarmCards: React.FC = () => {
 interface FarmCardProps {
   farm: Farm,
 }
-const WARNING_TIMESTAMP = 1598000400000
+const WARNING_TIMESTAMP = 1598000400000;
+const start_static_six = 1598263200000;
+const start_static_eight = 1598270400000;
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const [startTime, setStartTime] = useState(0)
@@ -87,7 +89,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const timeLeft = Number((endTime * 1000) - Date.now())
   const poolActive = ((startTime * 1000)) - Date.now() <= 0
   return (<>
-    {farm.name === "Taco Tuesday" || farm.name === "Bal_Shrimp_Dai_95" || farm.name === "Bal_Shrimp_Dai_80" ?
+    {farm.name === "Zombies pp" ?
       ''
       :
       <StyledCardWrapper>
@@ -97,43 +99,63 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               <CardIcon>{farm.icon}</CardIcon>
               <StyledTitle>{farm.name}</StyledTitle>
               <StyledDetails>
-              {farm.depositToken.toUpperCase() !== "SHRIMP" && farm.depositToken.toUpperCase() !== "UNI" && <StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail>}
+              {farm.depositToken.toUpperCase() !== "DICELP" && farm.depositToken.toUpperCase() !== "SHRIMPLP" && farm.depositToken.toUpperCase() !== "UNI" && <><StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail> <br/></>}
 
-                {farm.depositToken.toUpperCase() === "SHRIMP" && <StyledDetail>Deposit ETH_SHRIMP_UNISWAP_LP</StyledDetail>}
+              {farm.depositToken.toUpperCase() === "SHRIMPLP" && <StyledDetail>Deposit ETH_SHRIMP_UNISWAP_LP</StyledDetail>}
+              {farm.depositToken.toUpperCase() === "DICELP" && <StyledDetail>Deposit ETH_DICE_UNISWAP_LP</StyledDetail>}
                 {farm.depositToken.toUpperCase() === "UNI" && <StyledDetail>Deposit DAI_ZOMBIE_UNISWAP_LP</StyledDetail>}
 
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
-              {/* {Date.now() > endTime * 1000 ? (
-                <> */}
-                  <Button
+              {!poolActive ?
+              <>
+              <Button
                     disabled={!poolActive}
                     text={poolActive ? 'Select' : undefined}
                     to={`/farms/${farm.id}`}
-                  />
-                {/* </>
-              )
-                : (<>
-                  <a href={`/farms/${farm.id}`} style={{ textDecoration: 'none', width: '100%' }}>
+                  >
+              <Countdown date={Number(startTime * 1000)} renderer={renderer} />
+              </Button>
+              </>
+                :
+                <>
+                {Date.now() > endTime * 1000 ? (
+                  <> 
                     <Button
                       disabled={!poolActive}
-                      text={poolActive ? '' : undefined}
+                      text={poolActive ? 'Select' : undefined}
                       to={`/farms/${farm.id}`}
-                    >
-                      {900000 > Number(endTime * 1000) &&
-                        <span style={{ color: 'red', marginLeft: '33%' }} >
+                    />
+                  </>
+                )
+                  : (<>
+                    <a href={`/farms/${farm.id}`} style={{ textDecoration: 'none', width: '100%' }}>
+                      <Button
+                        disabled={start_static_eight > Date.now() ? poolActive : !poolActive}
+                        text={poolActive ? '' : undefined}
+                        to={`/farms/${farm.id}`}
+                      >
+                      {farm.name === 'Zombies army' ? 
+                      <Countdown date={Number(start_static_eight)} renderer={renderer} />
+                      :
+                      <>
+                        {900000 > Number(endTime * 1000) &&
+                          <span style={{ color: 'red', marginLeft: '33%' }} >
+                            <Countdown date={Number(endTime * 1000)} renderer={renderer} />
+                          </span>
+                        }
+                        {900000 < Number(endTime * 1000) &&
                           <Countdown date={Number(endTime * 1000)} renderer={renderer} />
-                        </span>
+                        }
+                        </>
                       }
-                      {900000 < Number(endTime * 1000) &&
-
-                        <Countdown date={Number(endTime * 1000)} renderer={renderer} />
-
-                      }
-                    </Button>
-                  </a>
-                </>
-                )} */}
+                      </Button>
+                    </a>
+                  </>
+                  )}
+                  </>
+              }
+              
             </StyledContent>
           </CardContent>
         </Card>

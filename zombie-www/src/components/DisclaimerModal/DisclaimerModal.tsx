@@ -26,9 +26,9 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({ onConfirm, onDismiss }) =>
           <p>Audits: None. (This project is in beta. Use at your own risk.)</p>
           <p>🔥 The army of zombies is coming!<br/><br/>
 
-          😵 Please note that due to the large number of zombies: <span style={{fontWeight: "bolder"}}>we adjusted the token distribution period to 10 weeks, and the Shrimp pool switched to Eth-Shrimp LP!</span> Please prepare countermeasures as soon as possible!<br/><br/>
+          😵 Please note that due to the large number of zombies: <span style={{fontWeight: "bolder"}}>we adjusted the token distribution period to 10 weeks, the Shrimp pool was switched to Eth-Shrimp LP and the Dice pool was also switched to Eth-Dice LP</span> Please prepare countermeasures as soon as possible!<br/><br/>
 
-          🙌 Be careful that zombies are by your side!</p>
+          🙌 Be mindful that zombies are by your side!</p>
         </div>
       )
     } else {

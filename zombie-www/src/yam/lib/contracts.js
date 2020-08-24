@@ -24,8 +24,10 @@ import UNIRouterJson from './uniR.json';
 
 import DAIPoolJson from '../clean_build/contracts/YAMCOMPPool.json';
 import UNIPoolJson from '../clean_build/contracts/ShrimpUniPool.json';
+import nonlpDicePool from '../clean_build/contracts/nonlpDicePool.json'
 import DICEPoolJson from '../clean_build/contracts/SHRIMPDICEPool.json';
 import SHRIMPPoolJson from '../clean_build/contracts/ShrimpTacoPool.json';
+import nonlpSHRIMPPoolJson from '../clean_build/contracts/nonlpShrimpPool.json';
 import ProposalJson from '../clean_build/contracts/Proposal.json';
 import IncJson from '../clean_build/contracts/YAMIncentivizer.json';
 
@@ -52,10 +54,12 @@ export class Contracts {
     this.uni_router = new this.web3.eth.Contract(UNIRouterJson);
     this.uni_fact = new this.web3.eth.Contract(UNIFactJson);
     this.dai = new this.web3.eth.Contract(ERC20Json.abi);
-    this.dice = new this.web3.eth.Contract(ERC20Json.abi);
+    this.dicelp = new this.web3.eth.Contract(ERC20Json.abi);
+    this.nonlpdice = new this.web3.eth.Contract(ERC20Json.abi);
     this.yam = new this.web3.eth.Contract(YAMJson.abi);
     this.uni = new this.web3.eth.Contract(ERC20Json.abi);
     this.shrimp = new this.web3.eth.Contract(ERC20Json.abi);
+    this.shrimplp = new this.web3.eth.Contract(ERC20Json.abi);
 
     // this.yfi_pool = new this.web3.eth.Contract(YFIPoolJson.abi);
     // this.eth_pool = new this.web3.eth.Contract(WETHPoolJson.abi);
@@ -63,8 +67,10 @@ export class Contracts {
     // this.bsd95_pool = new this.web3.eth.Contract(BalShrimpDai95Json.abi)
     // this.bsd80_pool = new this.web3.eth.Contract(BalShrimpDai80Json.abi)
     this.dai_pool = new this.web3.eth.Contract(DAIPoolJson.abi);
-    this.dice_pool = new this.web3.eth.Contract(DICEPoolJson.abi);
-    this.shrimp_pool = new this.web3.eth.Contract(SHRIMPPoolJson.abi);
+    this.dicelp_pool = new this.web3.eth.Contract(DICEPoolJson.abi);
+    this.dice_pool = new this.web3.eth.Contract(nonlpDicePool.abi);
+    this.shrimp_pool = new this.web3.eth.Contract(nonlpSHRIMPPoolJson.abi);
+    this.shrimplp_pool = new this.web3.eth.Contract(SHRIMPPoolJson.abi);
     this.uni_pool = new this.web3.eth.Contract(UNIPoolJson.abi);
     this.proposal = new this.web3.eth.Contract(ProposalJson.abi);
     
@@ -101,10 +107,12 @@ export class Contracts {
       { contract: this.reserves, json: YAMReservesJson },
       { contract: this.gov, json: YAMGovJson },
       { contract: this.timelock, json: YAMTimelockJson },
-      { contract: this.dice_pool, json: DICEPoolJson },
+      { contract: this.dicelp_pool, json: DICEPoolJson },
+      { contract: this.dice_pool, json: nonlpDicePool },
       { contract: this.dai_pool, json: DAIPoolJson },
       { contract: this.uni_pool, json: UNIPoolJson },
-      { contract: this.shrimp_pool, json: SHRIMPPoolJson},
+      { contract: this.shrimp_pool, json: nonlpSHRIMPPoolJson},
+      { contract: this.shrimplp_pool, json: SHRIMPPoolJson},
     ]
 
     contracts.forEach(contract => this.setContractProvider(
@@ -119,10 +127,12 @@ export class Contracts {
     // this.bsd95.options.address = addressMap["BSD95"];
     // this.bsd80.options.address = addressMap["BSD80"];
     // this.cream.options.address = addressMap["CREAM"];
-    // this.shrimp_scrv_uni_lp.options.address = addressMap["SHRIMPsCRV"];
+    // this.shrimplp_scrv_uni_lp.options.address = addressMap["SHRIMPsCRV"];
     this.dai.options.address = addressMap["DAI"];
-    this.dice.options.address = addressMap["DICE"];
+    this.dicelp.options.address = addressMap["DICELP"];
+    this.nonlpdice.options.address = addressMap["DICE"]
     this.shrimp.options.address = addressMap["SHRIMP"];
+    this.shrimplp.options.address = addressMap["SHRIMPLP"];
     this.uni.options.address = addressMap["UNI"];
     this.uni_fact.options.address = addressMap["uniswapFactoryV2"];
     this.uni_router.options.address = addressMap["UNIRouter"];
@@ -134,8 +144,10 @@ export class Contracts {
       // {"tokenAddr": this.bsd95.options.address, "poolAddr": this.bsd95_pool.options.address},
       // {"tokenAddr": this.bsd80.options.address, "poolAddr": this.bsd80_pool.options.address},
       {"tokenAddr": this.dai.options.address, "poolAddr": this.dai_pool.options.address},
-      {"tokenAddr": this.dice.options.address, "poolAddr": this.dice_pool.options.address},
+      {"tokenAddr": this.dicelp.options.address, "poolAddr": this.dicelp_pool.options.address},
+      {"tokenAddr": this.nonlpdice.options.address, "poolAddr": this.dice_pool.options.address},
       {"tokenAddr": this.shrimp.options.address, "poolAddr": this.shrimp_pool.options.address},
+      {"tokenAddr": this.shrimplp.options.address, "poolAddr": this.shrimplp_pool.options.address},
       {"tokenAddr": this.uni.options.address, "poolAddr": this.uni_pool.options.address},
     ]
   }
@@ -149,8 +161,10 @@ export class Contracts {
     // this.bsd95.options.from = account;
     // this.bsd80.options.from = account;
     this.dai.options.from = account;
-    this.dice.options.from = account;
+    this.dicelp.options.from = account;
+    this.nonlpdice.options.from = account;
     this.shrimp.options.from = account;
+    this.shrimplp.options.from = account;
     this.uni.options.from = account;
     this.yam.options.from = account;
   }

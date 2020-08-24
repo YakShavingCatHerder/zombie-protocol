@@ -17,8 +17,10 @@ const NAME_FOR_POOL: { [key: string]: string } = {
   // cream_pool: 'Modgie streams',
   // comp_pool: 'Compounding Hills',
   dice_pool: 'Safe haven',
+  dicelp_pool: 'Safe haven-LP',
   uni_pool: 'Zombies army',
   shrimp_pool: 'Undead shrimps',
+  shrimplp_pool: 'Undead shrimps-LP',
   dai_pool: 'Dai another day'
   // taco_pool: 'Taco Tuesday'
 }
@@ -31,8 +33,10 @@ const ICON_FOR_POOL: { [key: string]: string } = {
   // cream_pool: '🍦',
   // comp_pool: '💸',
   dice_pool: '🎲',
+  dicelp_pool: '🎲',
   uni_pool: '🌈',
   shrimp_pool: '🦐',
+  shrimplp_pool: '🦐',
   dai_pool: '🛡'
   // taco_pool: '🌮',
 }
@@ -46,9 +50,11 @@ const SORT_FOR_POOL: { [key: string]: number } = {
   // cream_pool: 5,
   // comp_pool: 6,
   dice_pool: 0,
-  uni_pool: 1,
-  shrimp_pool: 2,
-  dai_pool: 3
+  dicelp_pool: 1,
+  uni_pool: 2,
+  shrimp_pool: 3,
+  shrimplp_pool: 4,
+  dai_pool: 5
 }
 
 const Farms: React.FC = ({ children }) => {
@@ -82,10 +88,6 @@ const Farms: React.FC = ({ children }) => {
         // if (method) {
         //   tokenAddress = await method().call()
         // } 
-        
-        if (tokenKey === 'dice') {
-          tokenAddress = '0xCF67CEd76E8356366291246A9222169F4dBdBe64'
-        }
 
         // if (tokenKey === 'cream') {
         //   tokenAddress = '0x2ba592F78dB6436527729929AAf6c908497cB200'
@@ -99,16 +101,27 @@ const Farms: React.FC = ({ children }) => {
         //   tokenAddress = '0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e'
         // }
 
-        // if (tokenKey === 'weth') {
-        //   tokenAddress = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
-        // }
+        if (tokenKey === 'dai') {
+          tokenAddress = '0x6b175474e89094c44da98b954eedeac495271d0f'
+        }
 
         if (tokenKey === 'uni') {
           tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
         }
 
         if (tokenKey === 'shrimp') {
-          tokenAddress = '0x00D1793D7C3aAE506257Ba985b34C76AaF642557'
+          tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
+        }
+        if (tokenKey === 'dice') {
+          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+        }
+
+        
+        if (tokenKey === 'shrimplp') {
+          tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
+        }
+        if (tokenKey === 'dicelp') {
+          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
         }
         // //Pool 95
         // if (tokenKey === 'bsd95') {
