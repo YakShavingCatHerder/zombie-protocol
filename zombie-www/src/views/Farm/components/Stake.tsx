@@ -25,6 +25,8 @@ import { getDisplayBalance } from '../../../utils/formatBalance'
 import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 
+// import seed from 'src/assets/img/zombie_seed.png'
+import seed from '../../../assets/img/zombie_seed.png'
 interface StakeProps {
   poolContract: Contract,
   tokenContract: Contract,
@@ -82,7 +84,7 @@ const Stake: React.FC<StakeProps> = ({
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🦠</CardIcon>
+            <CardIcon><img width="34px" height="34px" alt="zombie seed, actually a germ" src={seed}/></CardIcon>
             <Value value={getDisplayBalance(stakedBalance)} />
             <Label text={`${tokenName} Staked`} />
           </StyledCardHeader>

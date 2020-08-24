@@ -15,6 +15,7 @@ import useReward from '../../../hooks/useReward'
 
 import { getDisplayBalance } from '../../../utils/formatBalance'
 
+import zombie from '../../../assets/img/zombie.png'
 interface HarvestProps {
   poolContract: Contract
 }
@@ -29,7 +30,7 @@ const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🧟‍♂️</CardIcon>
+            <CardIcon><img width="34px" height="34px" alt="a zombie" src={zombie} /></CardIcon>
             <Value value={getDisplayBalance(earnings)} />
             <Label text="ZOMBIES earned" />
           </StyledCardHeader>
