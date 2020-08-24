@@ -66,7 +66,7 @@ Token Distribution:
 
 #### Pool - World of tokens LP pool
 >This pool will support many currencies on Balancer, and will be presented in 95/5 ZOMBIE. Currently supported plans: YFI/ZOMBIE, CURVE/ZOMBIE  
->The world pool will be presented at 2020/08/24 10:00:00 UTC+0
+>The world pool will be presented at 2020/08/26 10:00:00 UTC+0
 
 ***In order to motivate early players, the first 72 hours of $ZOMBIE reward will be doubled.***
 
