@@ -71,14 +71,22 @@ Token Distribution:
 ***In order to motivate early players, the first 72 hours of $ZOMBIE reward will be doubled.***
 
 
-## The developer
+## Smart Contracts
 $ZOMBIE ERC20 Address: [0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8](https://etherscan.io/token/0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8)  
-Pool - Dai - Allocation transaction：[0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe](https://etherscan.io/tx/0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe)  
-Pool - Shrimp - Allocation transaction：[0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42](https://etherscan.io/tx/0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42)  
-Pool - Eth-Shrimp  - Allocation transaction：[0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026](https://etherscan.io/tx/0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026)  
-Pool - Dice - Allocation transaction：[0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb](https://etherscan.io/tx/0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb)  
-Pool - Eth-Dice - Allocation transaction：[0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9](https://etherscan.io/tx/0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9)  
-Pool - Dai-Zombie - Allocation transaction：[0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3](https://etherscan.io/tx/0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3)  
+
+Pool - Dai - [Smart Contract](https://etherscan.io/address/0x66c58b0ed9f987c19177aa5949c3100beda982f5)  
+Pool - Shrimp - [Smart Contract](https://etherscan.io/address/0x1dd61127758c47ab95a1931e02d3517f8d0dd1a6)  
+Pool - Eth-Shrimp  - [Smart Contract](https://etherscan.io/address/0xd82def026ec724ab8b06a117f69aa32a125e0dbd)  
+Pool - Dice - [Smart Contract](https://etherscan.io/address/0xcd3d97a3ebf3910d1572d4446d4303bc77ace335)  
+Pool - Eth-Dice - [Smart Contract](https://etherscan.io/address/0x934929f34c7b7611abc1aeca15769da3ca47a097)  
+Pool - Dai-Zombie - [Smart Contract](https://etherscan.io/address/0x88a131b5293ca340b454111314b6c1b5c0dfa9b9)  
+
+Pool - Dai - Allocated transaction：[0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe](https://etherscan.io/tx/0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe)  
+Pool - Shrimp - Allocated transaction：[0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42](https://etherscan.io/tx/0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42)  
+Pool - Eth-Shrimp  - Allocated transaction：[0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026](https://etherscan.io/tx/0x79391f8fcb6d4f0e273b5b77371f4076e5ece36eef29b2b51968cf70fb0c4026)  
+Pool - Dice - Allocated transaction：[0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb](https://etherscan.io/tx/0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb)  
+Pool - Eth-Dice - Allocated transaction：[0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9](https://etherscan.io/tx/0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9)  
+Pool - Dai-Zombie - Allocated transaction：[0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3](https://etherscan.io/tx/0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3)  
 
 There is no mint function in $ZOMBIE ERC20, the total amount of $zombie is fixed, even vitalik can’t change, please don’t ask dev to burn the admin key🙆‍♂️
 
