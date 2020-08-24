@@ -52,6 +52,7 @@ Token Distribution:
 > To join this pool, you must stake  DAIZOMBIE-V2 LP tokens that can be acquired by depositing $ZOMBIE and $DAI into the $ZOMBIE Uniswap pool.
 > 
 > *This pool will be opened two hours later after Farming is turned on.*
+> To join this pool, you must stake  DAIZOMBIE-V2 LP tokens that can be acquired by depositing $ZOMBIE and $DAI into the $SHRIMP Uniswap pool. [Uniswap Link](https://app.uniswap.org/#/add/0x6b175474e89094c44da98b954eedeac495271d0f/0xd55bd2c12b30075b325bc35aef0b46363b3818f8)
 
 #### Pool - Shrimp, Uniswap Shrimp LP pool
 > 🚨🚨 Shrimp Unite!
