@@ -41,6 +41,23 @@ const ICON_FOR_POOL: { [key: string]: string } = {
   // taco_pool: '🌮',
 }
 
+const STATS1_FOR_POOL: { [key: string]: string } = {
+  dice_pool: `5% of all  $ZOMBIE`,
+  dicelp_pool: `10% of all $ZOMBIE`,
+  uni_pool: `35% of all $ZOMBIE`,
+  shrimp_pool: `5% of all $ZOMBIE`,
+  shrimplp_pool: `20% of all $ZOMBIE`,
+  dai_pool: `20% of all $ZOMBIE`
+}
+const STATS2_FOR_POOL: { [key: string]: string } = {
+  dice_pool: `15,339 $ZOMBIE`,
+  dicelp_pool: `30,678 $ZOMBIE`,
+  uni_pool: `107,373 $ZOMBIE`,
+  shrimp_pool: `15,339 $ZOMBIE`,
+  shrimplp_pool: `61,356 $ZOMBIE`,
+  dai_pool: `61,356 $ZOMBIE`
+}
+
 const SORT_FOR_POOL: { [key: string]: number } = {
   // bsd95_pool: 0,
   // bsd80_pool: 1,  
@@ -49,11 +66,11 @@ const SORT_FOR_POOL: { [key: string]: number } = {
   // eth_pool: 4,
   // cream_pool: 5,
   // comp_pool: 6,
-  dice_pool: 0,
+  dice_pool: 4,
   dicelp_pool: 1,
   uni_pool: 2,
   shrimp_pool: 3,
-  shrimplp_pool: 4,
+  shrimplp_pool: 0,
   dai_pool: 5
 }
 
@@ -104,19 +121,17 @@ const Farms: React.FC = ({ children }) => {
         if (tokenKey === 'dai') {
           tokenAddress = '0x6b175474e89094c44da98b954eedeac495271d0f'
         }
-
-        if (tokenKey === 'uni') {
-          tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
-        }
-
         if (tokenKey === 'shrimp') {
-          tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
+          tokenAddress = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
         }
         if (tokenKey === 'dice') {
-          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+          tokenAddress = '0xCF67CEd76E8356366291246A9222169F4dBdBe64'
         }
-
         
+        
+        if (tokenKey === 'uni') {
+          tokenAddress = '0xC83E9d6bC93625863FFe8082c37bA6DA81399C47'
+        }
         if (tokenKey === 'shrimplp') {
           tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
         }
@@ -144,7 +159,9 @@ const Farms: React.FC = ({ children }) => {
           earnTokenAddress: yamAddress,
           icon: ICON_FOR_POOL[poolKey],
           id: tokenKey,
-          sort: SORT_FOR_POOL[poolKey]
+          sort: SORT_FOR_POOL[poolKey],
+          stats1: STATS1_FOR_POOL[poolKey],
+          stats2: STATS2_FOR_POOL[poolKey]
         })
       } catch (e) {
         console.log(e)

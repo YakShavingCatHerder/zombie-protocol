@@ -153,6 +153,11 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               } */}
               
             </StyledContent>
+            <StyledDetailing>
+            {farm.stats1}
+            <br/>
+            {farm.stats2}
+            </StyledDetailing>
           </CardContent>
         </Card>
       </StyledCardWrapper>
@@ -234,6 +239,11 @@ const StyledSpacer = styled.div`
 const StyledDetails = styled.div`
   margin-bottom: ${props => props.theme.spacing[6]}px;
   margin-top: ${props => props.theme.spacing[2]}px;
+  text-align: center;
+`
+const StyledDetailing = styled.div`
+  margin-bottom: 1px;
+  margin-top: 10px;
   text-align: center;
 `
 
