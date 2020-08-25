@@ -95,7 +95,7 @@ const Stats: React.FC = () => {
             icon={<img src={farmer} height="96" />}
             title="View current pool stats."
           />
-
+<AdButton />
           <>
             <div style={{
               alignItems: 'center',

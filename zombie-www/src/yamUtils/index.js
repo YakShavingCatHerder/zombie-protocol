@@ -71,7 +71,8 @@ export const current_UserDaiEarned_value = async (ethereum, user, address, nowAb
   var tot = 0;
   if (ethereum&&address&&nowAbi) {
     const web3 = new Web3(ethereum);
-    const my_proposal = new web3.eth.Contract(nowAbi.abi, address);
+    const my_proposal = new web3.eth.Contract(nowAbi, address);
+    // console.log(my_proposal)
     await my_proposal.methods.earned(user).call().then(function (events) {
         tot = web3.utils.fromWei(events, 'ether')
     })
@@ -82,7 +83,7 @@ export const current_DaiAPY = async (ethereum, address, nowAbi)=>{
   var tot = 0;
   if (ethereum&&address&&nowAbi) {
     const web3 = new Web3(ethereum);
-    const my_proposal = new web3.eth.Contract(nowAbi.abi, address);
+    const my_proposal = new web3.eth.Contract(nowAbi, address);
     await my_proposal.methods.rewardRate().call().then(function (events) {
         tot = web3.utils.fromWei(events, 'ether')
     })

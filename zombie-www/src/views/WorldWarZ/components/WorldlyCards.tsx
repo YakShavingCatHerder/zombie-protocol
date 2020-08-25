@@ -82,16 +82,23 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                   <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
                 </StyledDetails>
                 <Button
-                  disabled={!poolActive}
-                  text={poolActive ? 'Select' : undefined}
+                  disabled={poolActive}
+                  text={!poolActive ? 'Select' : undefined}
                   to={`/farms/${farm.id}`}
                 >
-                  {/* {poolActive && <Countdown date={new Date(timeStamp)} renderer={renderer} />} */}
+                  {poolActive && <Countdown date={new Date(timeStamp)} renderer={renderer} />}
                 </Button>
                 <br />
                 <StyledDetail>{farm.stats1}
                   <br />
                   {farm.stats2}</StyledDetail>
+                  <br/>
+                  {farm.id === 'curve' && 
+                <StyledLink target="__blank" href="https://pools.balancer.exchange/#/pool/0xda4b031b5ece42abb394a9d2130eaa958c2a8b38/">More Info</StyledLink>
+                  }
+                  {farm.id === 'yfi' && 
+                <StyledLink target="__blank" href="https://pools.balancer.exchange/#/pool/0x1066a453127fad74d0ab1c981dffa56d76310517/">More Info</StyledLink>
+                  }
               </StyledContent>
             </CardContent>
           </Card>
@@ -102,6 +109,12 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
     </>
   )
 }
+
+const StyledLink = styled.a`
+  color: ${props => props.theme.color.grey[600]};
+  text-decoration: none;
+  font-weight: 700;
+`
 
 const StyledCardAccent = styled.div`
   background: linear-gradient(

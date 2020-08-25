@@ -40,7 +40,7 @@ const ICON_FOR_POOL: { [key: string]: string } = {
   shrimp_pool: '🦐',
   shrimplp_pool: '🦐',
   dai_pool: '🛡',
-  curve_pool: '🧬',
+  curve_pool: '🥐',
   yfi_pool: '🐋'
   // taco_pool: '🌮',
 }
@@ -62,8 +62,8 @@ const STATS2_FOR_POOL: { [key: string]: string } = {
   shrimp_pool: `15,339 $ZOMBIE`,
   shrimplp_pool: `61,356 $ZOMBIE`,
   dai_pool: `61,356 $ZOMBIE`,
-  curve_pool: `7,669.5 $ZOMBIE`,
-  yfi_pool: `7,669.5 $ZOMBIE`
+  curve_pool: `7,669 $ZOMBIE`,
+  yfi_pool: `7,669 $ZOMBIE`
 
 }
 

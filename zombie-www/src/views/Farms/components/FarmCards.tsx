@@ -59,13 +59,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const [endTime, setEndTime] = useState(0)
 
   const getStartTime = useCallback(async () => {
-    if(farm.sort === 0 || farm.sort === 1) return
+    if (farm.sort === 0 || farm.sort === 1) return
     const startTime = await getPoolStartTime(farm.contract)
     setStartTime(startTime)
   }, [farm, setStartTime])
 
   const getEndTime = useCallback(async () => {
-    if(farm.sort === 0 || farm.sort === 1) return
+    if (farm.sort === 0 || farm.sort === 1) return
     const endTime = await getPoolEndTime(farm.contract)
     setEndTime((endTime))
   }, [farm, setStartTime])
@@ -98,65 +98,66 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
         <Card>
           <CardContent>
             <StyledContent>
-              <CardIcon>{farm.icon}</CardIcon>
+              {farm.icon === "aa" && <img style={{ width: "85px" }} src="https://zombie.finance/logo2.png" />}
+              {farm.icon !== "aa" && <CardIcon>{farm.icon}</CardIcon>}
               <StyledTitle>{farm.name}</StyledTitle>
               <StyledDetails>
-              {farm.depositToken.toUpperCase() !== "DICELP" && farm.depositToken.toUpperCase() !== "SHRIMPLP" && farm.depositToken.toUpperCase() !== "UNI" && <><StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail> <br/></>}
+                {farm.depositToken.toUpperCase() !== "DICELP" && farm.depositToken.toUpperCase() !== "SHRIMPLP" && farm.depositToken.toUpperCase() !== "UNI" && <><StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail> <br /></>}
 
-              {farm.depositToken.toUpperCase() === "SHRIMPLP" && <StyledDetail>Deposit ETH_SHRIMP_UNISWAP_LP</StyledDetail>}
-              {farm.depositToken.toUpperCase() === "DICELP" && <StyledDetail>Deposit ETH_DICE_UNISWAP_LP</StyledDetail>}
+                {farm.depositToken.toUpperCase() === "SHRIMPLP" && <StyledDetail>Deposit ETH_SHRIMP_UNISWAP_LP</StyledDetail>}
+                {farm.depositToken.toUpperCase() === "DICELP" && <StyledDetail>Deposit ETH_DICE_UNISWAP_LP</StyledDetail>}
                 {farm.depositToken.toUpperCase() === "UNI" && <StyledDetail>Deposit DAI_ZOMBIE_UNISWAP_LP</StyledDetail>}
 
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
               {!poolActive ?
-              <>
-              <Button
+                <>
+                  <Button
                     disabled={!poolActive}
                     text={'Select'}
                     to={`/farms/${farm.id}`}
                   >
-              <Countdown date={Number(startTime * 1000)} renderer={renderer} />
-              </Button>
-              </>
-              :
+                    <Countdown date={Number(startTime * 1000)} renderer={renderer} />
+                  </Button>
+                </>
+                :
                 <>
-                {Date.now() > endTime * 1000 ? (
-                  <> 
-                    <Button
-                      disabled={!poolActive}
-                      text={poolActive ? 'Select' : undefined}
-                      to={`/farms/${farm.id}`}
-                    />
-                  </>
-                )
-                  : (<>
-                    <a href={`/farms/${farm.id}`} style={{ textDecoration: 'none', width: '100%' }}>
+                  {Date.now() > endTime * 1000 ? (
+                    <>
                       <Button
                         disabled={!poolActive}
-                        text={poolActive ? '' : undefined}
+                        text={poolActive ? 'Select' : undefined}
                         to={`/farms/${farm.id}`}
-                      >
-                        {900000 > Number(endTime * 1000) &&
-                          <span style={{ color: 'red', marginLeft: '33%' }} >
+                      />
+                    </>
+                  )
+                    : (<>
+                      <a href={`/farms/${farm.id}`} style={{ textDecoration: 'none', width: '100%' }}>
+                        <Button
+                          disabled={!poolActive}
+                          text={poolActive ? '' : undefined}
+                          to={`/farms/${farm.id}`}
+                        >
+                          {900000 > Number(endTime * 1000) &&
+                            <span style={{ color: 'red', marginLeft: '33%' }} >
+                              <Countdown date={Number(endTime * 1000)} renderer={renderer} />
+                            </span>
+                          }
+                          {900000 < Number(endTime * 1000) &&
                             <Countdown date={Number(endTime * 1000)} renderer={renderer} />
-                          </span>
-                        }
-                        {900000 < Number(endTime * 1000) &&
-                          <Countdown date={Number(endTime * 1000)} renderer={renderer} />
-                        }
-                        
-                      </Button>
-                    </a>
-                  </>
-                  )}
-                  </>
+                          }
+
+                        </Button>
+                      </a>
+                    </>
+                    )}
+                </>
               }
             </StyledContent>
             <StyledDetailing>
-            {farm.stats1}
-            <br/>
-            {farm.stats2}
+              {farm.stats1}
+              <br />
+              {farm.stats2}
             </StyledDetailing>
           </CardContent>
         </Card>

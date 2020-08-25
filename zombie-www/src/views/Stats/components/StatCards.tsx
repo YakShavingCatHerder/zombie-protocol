@@ -76,38 +76,56 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const [userStakedDai, setUserStakedDai] = useState(0)
   const [userEarnedDai, setUserEarnedDai] = useState(0)
   const [DaiAPY, setDaiAPY] = useState(0)
+
+  const [currentPrice, setCurrentPrice] = useState(new Number)
+  const [currentstatPrice, setCurrentstatPrice] = useState(new Number)
+
   const yam = useYam()
   const { account, ethereum } = useWallet()
 
   switch (farm.depositToken) {
     case 'shrimp':
-      var address = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
+      var address = '0x1dD61127758c47Ab95a1931E02D3517f8d0dD1A6'
+      var cAddress = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
       var nowAbi = nonlpSHRIMPPoolJson.abi
+      var currentCoinPrice = 'shrimp-finance'
       break;
     case 'dai':
-      var address = '0x6b175474e89094c44da98b954eedeac495271d0f'
+      var address = '0x66C58b0eD9F987c19177AA5949C3100BEdA982f5'
+      var cAddress = '0x6b175474e89094c44da98b954eedeac495271d0f'
       var nowAbi = DAIPoolJson.abi
+      var currentCoinPrice = 'dai'
       break;
     case 'dice':
-      var address = '0xCF67CEd76E8356366291246A9222169F4dBdBe64'
+      var address = '0xCd3D97a3ebF3910D1572D4446d4303bC77acE335'
+      var cAddress = '0xCF67CEd76E8356366291246A9222169F4dBdBe64'
       var nowAbi = nonlpDicePool.abi
+      var currentCoinPrice = 'dice-finance'
       break;
     case 'uni':
-      var address = '0xC83E9d6bC93625863FFe8082c37bA6DA81399C47'
+      var address = '0x88a131b5293Ca340B454111314b6C1b5c0Dfa9B9'
+      var cAddress = '0xC83E9d6bC93625863FFe8082c37bA6DA81399C47'
       var nowAbi = UNIPoolJson.abi
+      var currentCoinPrice = ''
       break;
     case 'shrimplp':
-      var address = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
+      var address = '0xD82DEF026ec724aB8B06a117F69aA32A125E0DBD'
+      var cAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
       var nowAbi = SHRIMPPoolJson.abi
+      var currentCoinPrice = ''
       break;
     case 'dicelp':
-      var address = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+      var address = '0x934929f34c7b7611AbC1aEcA15769Da3ca47A097'
+      var cAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
       var nowAbi = DICEPoolJson.abi
+      var currentCoinPrice = ''
       break;
     default:
       //shrimp data i dont know why i chose this/s
-      address = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
+      address = '0x1dD61127758c47Ab95a1931E02D3517f8d0dD1A6'
+      var cAddress = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
       var nowAbi = nonlpSHRIMPPoolJson.abi
+      var currentCoinPrice = 'shrimp-finance'
   }
 
 
@@ -134,14 +152,14 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   }, [yam])
 
   const getdai = useCallback(async () => {
-    const totalDai = await current_Dai_value(ethereum);
+    const totalDai = await current_Dai_value(ethereum, cAddress);
     setTotalDai(Number(totalDai))
   }, [yam])
 
-  const getdaistaked = useCallback(async () => {
+  const getdaistaked = useCallback(async (num, zomNum) => {
     const totalDaiStaked = await current_DaiStaked_value(ethereum, address);
     await setTotalDaiStaked(Number(totalDaiStaked))
-    getDaiAPY(totalDaiStaked)
+    getDaiAPY(totalDaiStaked, num, zomNum)
   }, [yam])
 
   const getUserStakedDai = useCallback(async () => {
@@ -154,55 +172,86 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
     setUserEarnedDai(Number(userEarnedDai))
   }, [yam])
 
-  const getDaiAPY = useCallback(async (stakenum) => {
+  const getDaiAPY = useCallback(async (stakenum, numm, zomNum) => {
+    console.log(numm)
+    // if(currentPrice && Number(currentPrice) > 0 && currentstatPrice && Number(currentstatPrice) > 0 ){
     const DaiAPY = await current_DaiAPY(ethereum, address, nowAbi);
-    let num = Number(DaiAPY) * 60 * 60 * 24 * 365 * 55;//55 is the current price of zombie
-    setDaiAPY(num / stakenum * 100)
+    console.log(zomNum)
+    let num = Number(DaiAPY) * 60 * 60 * 24 * 365 * Number(zomNum);
+    setDaiAPY(num / (stakenum * Number(numm)) * 100)
+    // }
   }, [yam])
 
+  const callPrice = useCallback(async () => {
+    if(currentCoinPrice === '') return
+    axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=Cethereum%2C${currentCoinPrice}&vs_currencies=usd`).then((res) => {
+      if (res.status === 200) {
+        setCurrentstatPrice(Number(res.data[`${currentCoinPrice}`].usd))
+        get_prices(Number(res.data[`${currentCoinPrice}`].usd))
+      }
+    })
+  }, [setCurrentstatPrice])
 
+ const get_prices = useCallback(async (num) => {
+  axios.get('https://api.coingecko.com/api/v3/simple/price?ids=Cethereum%2Czombie-finance&vs_currencies=usd').then((res) => {
+      if (res.status === 200) {
+        setCurrentPrice(Number(res.data['zombie-finance'].usd))
+        if(yam){
+          gettots()
+          getdai()
+          getdaistaked(num, Number(res.data['zombie-finance'].usd))
+          getUserStakedDai()
+          getUserEarnedDai()
+      }
+      }
+  })
+}, [yam, setCurrentstatPrice])
 
   useEffect(() => {
-    if (yam) {
-      gettots()
-      getdai()
-      getdaistaked()
-      getUserStakedDai()
-      getUserEarnedDai()
-    }
-  }, [yam])
+    // if(farm.sort !== 0 && farm.sort !== 1 && farm.sort !== 2 && farm.sort !== 3 && farm.sort !== 4){
+      callPrice() 
+    // }
+      
+   
+  }, [])
 
 
   return (
     <>
-      <StyledCardWrapper>
-        <Card>
-          <CardContent>
-            <StyledContent>
-              <span>{farm.icon} {farm.name}</span>
-            </StyledContent>
-            <br />
+    {/* 234 */}
+      {farm.sort === 0 || farm.sort === 1 || farm.sort === 2 || farm.sort === 3 || farm.sort === 4 ?
+        ''
+        :
+        <StyledCardWrapper>
+          <Card>
+            <CardContent>
+              <StyledContent>
+                <span>{farm.icon} {farm.name}</span>
+              </StyledContent>
+              <br />
         ========== PRICES ==========<br />
-            {farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}-` : ''}
-            {farm.id === 'dicelp' && 'ETH_DICE_UNISWAP_LP-'}
-            {farm.id === 'shrimplp' && 'ETH_SHRIMP_UNISWAP_LP-'}
-            {farm.id === 'uni' && 'DAI_ZOMBIE_UNISWAP_LP-'}
-        ZOMBIE-$55.00<br />
-            {farm.id === 'dai' && <>DAI-$1.00 <br /></>}
+        {currentPrice && `ZOMBIE: $${Number(currentPrice).toLocaleString()}`}<br />
+      
+              {farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}: $${Number(currentstatPrice).toLocaleString()}` : ''}
+              {farm.id === 'dicelp' && `ETH_DICE_UNISWAP_LP: $${Number(currentstatPrice).toLocaleString()}`}
+              {farm.id === 'shrimplp' && `ETH_SHRIMP_UNISWAP_LP: $${Number(currentstatPrice).toLocaleString()}`}
+              {farm.id === 'uni' && `DAI_ZOMBIE_UNISWAP_LP: $${Number(currentstatPrice).toLocaleString()}`}
+              {farm.id !== 'dai' && <br />}
+              {farm.id === 'dai' && <>DAI: $1.00 <br /></>}
         ========== STAKING =========<br />
-            {/* Total supply of ZOMBIE-{totalZom}<br/> */}
-            <> Total supply of {farm.depositToken.toLocaleUpperCase()}-{totalDai} <br />
-        Total supply of {farm.depositToken.toLocaleUpperCase()} staked in our contract-{totalDaiStaked} <br />
-        You are staking-{userStakedDai} <br />
-            </>
+              {/* Total supply of ZOMBIE-{totalZom}<br/> */}
+              <> Total supply of {farm.depositToken.toLocaleUpperCase()}: {totalDai} <br />
+        Total supply of {farm.depositToken.toLocaleUpperCase()} staked in our contract: {totalDaiStaked} <br />
+        You are staking: {userStakedDai} <br />
+              </>
         ======== ZOMBIE REWARDS ========<br />
-            <>Your available rewards are-{userEarnedDai}<br />
-        APY-{DaiAPY}%
+              <>Your available rewards are: {userEarnedDai}<br />
+        APY: {DaiAPY}%
         </>
-          </CardContent>
-        </Card>
-      </StyledCardWrapper>
-
+            </CardContent>
+          </Card>
+        </StyledCardWrapper>
+      }
     </>
   )
 }

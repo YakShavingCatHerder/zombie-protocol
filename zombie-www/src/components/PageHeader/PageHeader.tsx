@@ -17,7 +17,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ icon, subtitle, title }) => {
       <StyledSubtitle>{subtitle}</StyledSubtitle>
     </StyledPageHeader>
   )
-}
+} 
 
 const StyledPageHeader = styled.div`
   align-items: center;

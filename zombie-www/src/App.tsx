@@ -19,7 +19,7 @@ import useModal from './hooks/useModal'
 import Farms from './views/Farms'
 import Home from './views/Home'
 // import Adverts from './views/Advertisements';
-// import Stats from './views/Stats';
+import Stats from './views/Stats';
 import Vote from './views/Gov'
 import Farm from './views/Farm/Farm'
 import Worldswz from './views/WorldWarZ/Worldswz'
@@ -46,9 +46,9 @@ const App: React.FC = () => {
           <Route path="/wwz" exact>
             <Worldswz />
           </Route>          
-          {/* <Route path="/Stats" exact>
+          <Route path="/Stats" exact>
             <Stats />
-          </Route> */}
+          </Route>
         </Switch>
       </Router>
       <Disclaimer />
