@@ -67,7 +67,9 @@ Token Distribution:
 
 #### Pool - World of tokens LP pool
 >This pool will support many currencies on Balancer, and will be presented in 95/5 ZOMBIE. Currently supported plans: YFI/ZOMBIE, CURVE/ZOMBIE  
->The world pool will be presented at 2020/08/26 10:00:00 UTC+0
+>The world pool will be presented at 2020/08/26 10:00:00 UTC+0  
+>To join YFI/ZOMBIE pool, you must stake  YFIZOMBIE-BALANCER LP tokens that can be acquired by depositing $YFI and $ZOMBIE into the YFI/ZOMBIE Balancer pool. [Balancer Link](https://pools.balancer.exchange/#/pool/0x1066a453127fad74d0ab1c981dffa56d76310517/)  
+>To join CURVE/ZOMBIE pool, you must stake  CURVEZOMBIE-BALANCER LP tokens that can be acquired by depositing $CURVE and $ZOMBIE into the CURVE/ZOMBIE Balancer pool. [Balancer Link](https://pools.balancer.exchange/#/pool/0xda4b031b5ece42abb394a9d2130eaa958c2a8b38/)
 
 ***In order to motivate early players, the first 72 hours of $ZOMBIE reward will be doubled.***
 
