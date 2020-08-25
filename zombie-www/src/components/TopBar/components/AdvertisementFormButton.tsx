@@ -26,11 +26,7 @@ const AdvertisementFormButton: React.FC<AccountButtonProps> = (props) => {
           text="Unlock Wallet"
         />
       ) : (
-        <Button
-          onClick={onPresentAccountModal}
-          size="md"
-          text="Make A Pool"
-        />
+        ''
       )}
     </StyledAccountButton>
   )

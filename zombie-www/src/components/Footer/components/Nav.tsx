@@ -4,11 +4,11 @@ import styled from 'styled-components'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledLink href="https://github.com/Zombie-Finance/zombie-protocol">Github</StyledLink>
-      <StyledLink href="https://twitter.com/ZombieFinance">Twitter</StyledLink>
-      <StyledLink href="https://t.me/defizombie">Telegram</StyledLink>
-      {/* <StyledLink href="https://www.coingecko.com/en/coins/shrimp-finance">Coingecko</StyledLink>*/}
-      <StyledLink href="https://app.uniswap.org/#/swap?inputCurrency=0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2&outputCurrency=0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8">Uniswap</StyledLink> 
+      <StyledLink target="_blank" href="https://github.com/Zombie-Finance/zombie-protocol">Github</StyledLink>
+      <StyledLink target="_blank" href="https://twitter.com/ZombieFinance">Twitter</StyledLink>
+      <StyledLink target="_blank" href="https://t.me/defizombie">Telegram</StyledLink>
+      <StyledLink target="_blank" href="https://www.coingecko.com/en/coins/zombie-finance">Coingecko</StyledLink>
+      <StyledLink target="_blank" href="https://app.uniswap.org/#/swap?inputCurrency=0x6b175474e89094c44da98b954eedeac495271d0f&outputCurrency=0xd55bd2c12b30075b325bc35aef0b46363b3818f8">Uniswap</StyledLink> 
     </StyledNav>
   )
 }

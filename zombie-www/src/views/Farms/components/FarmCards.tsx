@@ -59,11 +59,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const [endTime, setEndTime] = useState(0)
 
   const getStartTime = useCallback(async () => {
+    if(farm.sort === 0 || farm.sort === 1) return
     const startTime = await getPoolStartTime(farm.contract)
     setStartTime(startTime)
   }, [farm, setStartTime])
 
   const getEndTime = useCallback(async () => {
+    if(farm.sort === 0 || farm.sort === 1) return
     const endTime = await getPoolEndTime(farm.contract)
     setEndTime((endTime))
   }, [farm, setStartTime])
@@ -89,7 +91,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const timeLeft = Number((endTime * 1000) - Date.now())
   const poolActive = ((startTime * 1000)) - Date.now() <= 0
   return (<>
-    {farm.name === "Zombies pp" ?
+    {farm.sort === 0 || farm.sort === 1 ?
       ''
       :
       <StyledCardWrapper>
@@ -107,17 +109,17 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
-              {/* {!poolActive ? */}
+              {!poolActive ?
               <>
               <Button
-                    disabled={poolActive}
-                    text={poolActive ? undefined : 'Select'}
+                    disabled={!poolActive}
+                    text={'Select'}
                     to={`/farms/${farm.id}`}
                   >
               <Countdown date={Number(startTime * 1000)} renderer={renderer} />
               </Button>
               </>
-                {/* :
+              :
                 <>
                 {Date.now() > endTime * 1000 ? (
                   <> 
@@ -150,7 +152,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                   )}
                   </>
               }
-               */}
             </StyledContent>
             <StyledDetailing>
             {farm.stats1}

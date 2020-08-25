@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from 'react'
+import React, { useMemo, useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import axios from "axios";
 
@@ -24,6 +24,7 @@ const Stats: React.FC<StatsProps> = ({
   totalSupply,
 }) => {
   const [currentPrice, setCurrentPrice] = useState(new Number)
+  const [circulating, setcirculating] = useState(new Number)
 
   const formattedTotalSupply = useMemo(() => {
     if (totalSupply) {
@@ -32,11 +33,29 @@ const Stats: React.FC<StatsProps> = ({
     } else return '--'
   }, [totalSupply])
 
+  const circulation = useCallback(() => {
+  const now_time = Date.now();
+  const now_timestamp = now_time/1000
+  console.log(now_timestamp)
+  if(now_timestamp<1598529600)
+  {
+    var total_reveal_percent = (now_timestamp - 1598270400)*2/(60*60*24*73)
+    setcirculating(Number(total_reveal_percent))
+  }else if(now_timestamp<1604318400){
+    var total_reveal_percent = ((1598529600 - 1598270400)*2 + (now_timestamp -1598529600 ))/(60*60*24*73)
+    setcirculating(Number(total_reveal_percent))
+  } else { 
+    var total_reveal_percent = 306760
+    setcirculating(Number(total_reveal_percent))
+  }
+}, [setcirculating])
+
   useEffect(() => {
-    axios.get('https://api.coingecko.com/api/v3/simple/price?ids=Cethereum%2Cshrimp-finance&vs_currencies=usd').then((res) => {
+    axios.get('https://api.coingecko.com/api/v3/simple/price?ids=Cethereum%2Czombie-finance&vs_currencies=usd').then((res) => {
       if (res.status === 200) {
-        setCurrentPrice(Number(res.data['shrimp-finance'].usd))
+        setCurrentPrice(Number(res.data['zombie-finance'].usd))
       }
+      circulation()
     })
   }, [setCurrentPrice])
 
@@ -45,8 +64,8 @@ const Stats: React.FC<StatsProps> = ({
       <Card>
         <CardContent>
           <StyledStat>
-          {/* <StyledValue>{Number(currentPrice).toLocaleString()}</StyledValue> */}
-          <StyledValue>--</StyledValue>
+          <StyledValue>{Number(currentPrice).toLocaleString()}</StyledValue>
+          {/* <StyledValue>--</StyledValue> */}
             <Label text="Current Price" />
           </StyledStat>
         </CardContent>
@@ -54,14 +73,26 @@ const Stats: React.FC<StatsProps> = ({
 
       <StyledSpacer />
 
-      {/* <Card>
+      <Card>
         <CardContent>
           <StyledStat>
-            <StyledValue>$100</StyledValue>
-            <Label text="Target Price" />
+            <StyledValue>
+              {Number(circulating) === 306760 ? 
+              <>
+              306,760
+              <br/>
+              100%
+              </>
+              :
+              <>
+              {(306760 * Number(circulating)).toFixed(2)} <span style={{fontSize: "14px"}}>({(Number(circulating) * 100 ).toFixed(2)}%)</span>
+              </>
+              }
+            </StyledValue>
+            <Label text="Total Circulating Supply" />
           </StyledStat>
         </CardContent>
-      </Card> */}
+      </Card>
 
       <StyledSpacer />
 
@@ -69,12 +100,14 @@ const Stats: React.FC<StatsProps> = ({
         <CardContent>
           <StyledStat>
             <StyledValue>
-              306,780
+            306,780
             </StyledValue>
             <Label text="Total Supply" />
           </StyledStat>
         </CardContent>
       </Card>
+
+      
     </StyledStats>
   )
 }

@@ -21,7 +21,9 @@ const NAME_FOR_POOL: { [key: string]: string } = {
   uni_pool: 'Zombies army',
   shrimp_pool: 'Undead shrimps',
   shrimplp_pool: 'Undead shrimps-LP',
-  dai_pool: 'Dai another day'
+  dai_pool: 'Dai another day',
+  curve_pool: 'World watchers',
+  yfi_pool: 'World wide winter'
   // taco_pool: 'Taco Tuesday'
 }
 
@@ -37,7 +39,9 @@ const ICON_FOR_POOL: { [key: string]: string } = {
   uni_pool: '🌈',
   shrimp_pool: '🦐',
   shrimplp_pool: '🦐',
-  dai_pool: '🛡'
+  dai_pool: '🛡',
+  curve_pool: '🧬',
+  yfi_pool: '🐋'
   // taco_pool: '🌮',
 }
 
@@ -47,7 +51,9 @@ const STATS1_FOR_POOL: { [key: string]: string } = {
   uni_pool: `35% of all $ZOMBIE`,
   shrimp_pool: `5% of all $ZOMBIE`,
   shrimplp_pool: `20% of all $ZOMBIE`,
-  dai_pool: `20% of all $ZOMBIE`
+  dai_pool: `20% of all $ZOMBIE`,
+  curve_pool: `2.5% of all $ZOMBIE`,
+  yfi_pool: `2.5% of all $ZOMBIE`,
 }
 const STATS2_FOR_POOL: { [key: string]: string } = {
   dice_pool: `15,339 $ZOMBIE`,
@@ -55,7 +61,10 @@ const STATS2_FOR_POOL: { [key: string]: string } = {
   uni_pool: `107,373 $ZOMBIE`,
   shrimp_pool: `15,339 $ZOMBIE`,
   shrimplp_pool: `61,356 $ZOMBIE`,
-  dai_pool: `61,356 $ZOMBIE`
+  dai_pool: `61,356 $ZOMBIE`,
+  curve_pool: `7,669.5 $ZOMBIE`,
+  yfi_pool: `7,669.5 $ZOMBIE`
+
 }
 
 const SORT_FOR_POOL: { [key: string]: number } = {
@@ -66,12 +75,14 @@ const SORT_FOR_POOL: { [key: string]: number } = {
   // eth_pool: 4,
   // cream_pool: 5,
   // comp_pool: 6,
-  dice_pool: 4,
-  dicelp_pool: 1,
-  uni_pool: 2,
-  shrimp_pool: 3,
-  shrimplp_pool: 0,
-  dai_pool: 5
+  dice_pool: 6,
+  dicelp_pool: 3,
+  uni_pool: 4,
+  shrimp_pool: 5,
+  shrimplp_pool: 2,
+  dai_pool: 7,
+  curve_pool: 1,
+  yfi_pool: 0
 }
 
 const Farms: React.FC = ({ children }) => {
@@ -136,6 +147,14 @@ const Farms: React.FC = ({ children }) => {
           tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
         }
         if (tokenKey === 'dicelp') {
+          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+        }
+        
+        if (tokenKey === 'curve') {
+          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+        }
+
+        if (tokenKey === 'yfi') {
           tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
         }
         // //Pool 95
