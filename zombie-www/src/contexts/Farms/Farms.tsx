@@ -151,11 +151,11 @@ const Farms: React.FC = ({ children }) => {
         }
         
         if (tokenKey === 'curve') {
-          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+          tokenAddress = '0xDA4B031B5ECE42ABB394A9d2130eAA958C2A8B38'
         }
 
         if (tokenKey === 'yfi') {
-          tokenAddress = '0xc585cc7b9e77aea3371764320740c18e9aec9c55'
+          tokenAddress = '0x1066a453127fad74d0ab1c981dffa56d76310517'
         }
         // //Pool 95
         // if (tokenKey === 'bsd95') {
