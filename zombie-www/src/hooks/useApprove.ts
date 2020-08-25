@@ -17,7 +17,8 @@ const useApprove = (tokenContract: Contract, poolContract: Contract) => {
       return false
     }
   }, [account, tokenContract, poolContract])
-
+  console.log(tokenContract)
+  console.log(poolContract)
   return { onApprove: handleApprove }
 }
 

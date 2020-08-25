@@ -15,43 +15,43 @@ import Stats from './components/Stats'
 import { OverviewData } from './types'
 import { getStats } from './utils'
 
+import {current_zom_value} from '../../yamUtils/index';
+
 const Home: React.FC = () => {
 
-  const { account } = useWallet()
+  const { account, ethereum } = useWallet()
 
   const yam = useYam()
   const [{
     circSupply,
     curPrice,
-    // nextRebase,
     targetPrice,
     totalSupply,
   }, setStats] = useState<OverviewData>({})
-
   const fetchStats = useCallback(async () => {
     const statsData = await getStats(yam)
     setStats(statsData)
   }, [yam, setStats])
 
+  const checkPrice = useCallback(async () => {
+    console.log(ethereum)
+    console.log(1)
+    await current_zom_value(ethereum)
+  }, [ethereum, current_zom_value])
+
   useEffect(() => {
     if (yam) {
       fetchStats()
+      checkPrice()
     }
   }, [yam])
-
   return (
     <Page>
       <PageHeader icon="aa" subtitle="Zombies ahead, survive if you can!" title="Welcome" />
       <div>
-        {/* {!!account && (
-          <StyledVote>
-            <Vote />
-          </StyledVote>
-        )} */}
+        
         <StyledSpacer />
         <StyledOverview>
-          {/* <Rebase nextRebase={nextRebase} />
-          <StyledSpacer /> */}
           <Stats
             circSupply={circSupply}
             curPrice={curPrice}

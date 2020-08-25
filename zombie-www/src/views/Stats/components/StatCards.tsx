@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import Countdown, { CountdownRenderProps } from 'react-countdown'
+import axios from 'axios'
 
 import Button from '../../../components/Button'
 import Card from '../../../components/Card'
@@ -12,20 +13,25 @@ import useFarms from '../../../hooks/useFarms'
 
 import { Farm } from '../../../contexts/Farms'
 
-import { getPoolStartTime } from '../../../yamUtils'
+import { getPoolStartTime, getCurrentPrice } from '../../../yamUtils'
 
 const StatCards: React.FC = () => {
   const [farms] = useFarms()
+  
+  
 
   const rows = farms.reduce<Farm[][]>((farmRows, farm) => {
     const newFarmRows = [...farmRows]
-    if (newFarmRows[newFarmRows.length - 1].length === 3) {
+    if (newFarmRows[newFarmRows.length - 1].length) {
       newFarmRows.push([farm])
     } else {
       newFarmRows[newFarmRows.length - 1].push(farm)
     }
     return newFarmRows
   }, [[]])
+
+  
+  
 
   return (
     <StyledCards>
@@ -34,7 +40,6 @@ const StatCards: React.FC = () => {
           {farmRow.map((farm, j) => (
             <React.Fragment key={j}>
               <FarmCard farm={farm} />
-              {(j === 0 || j === 1) && <StyledSpacer />}
             </React.Fragment>
           ))}
         </StyledRow>
@@ -70,12 +75,25 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   return (
     <>
       <StyledCardWrapper>
+      <Card>
+      <CardContent>
         <StyledContent>
           <span>{farm.icon} {farm.name}</span>
         </StyledContent>
-        ========== PRICES ==========
-        ========== STAKING =========
-        ======== Zombie REWARDS ========
+        <br/>
+        ========== PRICES ==========<br/>
+        {farm.id === 'dai' || farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}-` : ''}
+        {farm.id === 'dicelp' && 'ETH_DICE_UNISWAP_LP-' }
+        {farm.id === 'shrimplp' && 'ETH_SHRIMP_UNISWAP_LP-' }
+        {farm.id === 'uni' && 'DAI_ZOMBIE_UNISWAP_LP-' }
+        <br/>
+        ZOMBIE-
+        <br/>
+
+        ========== STAKING =========<br/>
+        ======== ZOMBIE REWARDS ========<br/>
+        </CardContent>
+        </Card>
       </StyledCardWrapper>
 
     </>
@@ -122,6 +140,7 @@ const StyledRow = styled.div`
 
 const StyledCardWrapper = styled.div`
   display: flex;
+  justify-content: center;
   width: 100%;
   position: relative;
 `

@@ -9,10 +9,22 @@ import ProposalJson from '../yam/clean_build/contracts/Proposal.json';
 
 import AdvancedJson from '../yam/clean_build/contracts/AdvancedPool.json';
 
+import erc20_abi from '../constants/abi/ERC20.json';
+import { yam as yamAddress } from '../constants/tokenAddresses';
+
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
 });
+
+export const current_zom_value = async (ethereum)=>{
+  const zom = yamAddress;
+  if (ethereum) {
+    const web3 = new Web3(ethereum);
+    const my_proposal = new web3.eth.Contract(erc20_abi.abi, zom);
+    console.log(my_proposal)
+  }
+}
 
 export const getPoolStartTime = async (poolContract) => {
   return await poolContract.methods.starttime().call()

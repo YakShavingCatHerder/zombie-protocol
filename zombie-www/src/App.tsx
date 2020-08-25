@@ -19,6 +19,7 @@ import useModal from './hooks/useModal'
 import Farms from './views/Farms'
 import Home from './views/Home'
 import Adverts from './views/Advertisements';
+import Stats from './views/Stats';
 import Vote from './views/Gov'
 import Farm from './views/Farm/Farm'
 
@@ -41,8 +42,8 @@ const App: React.FC = () => {
           <Route path="/Vote" exact>
             <Vote />
           </Route>
-          <Route path="/Adverts" exact>
-            <Adverts />
+          <Route path="/Stats" exact>
+            <Stats />
           </Route>
         </Switch>
       </Router>

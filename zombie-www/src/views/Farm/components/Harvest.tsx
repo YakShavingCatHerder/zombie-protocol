@@ -22,7 +22,7 @@ interface HarvestProps {
 
 const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
 
-  const earnings = useEarnings(poolContract)
+  const earnings = useEarnings(poolContract) 
   const { onReward } = useReward(poolContract)
 
   return (

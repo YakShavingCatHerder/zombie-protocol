@@ -13,6 +13,8 @@ import Label from '../../Label'
 import Modal, { ModalProps } from '../../Modal'
 import ModalTitle from '../../ModalTitle'
 
+import zombie from'../../../assets/img/zombie.png'
+
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
   const handleSignOutClick = useCallback(() => {
@@ -29,7 +31,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
       <ModalTitle text="My Account" />
 
       <StyledBalanceWrapper>
-        <CardIcon>🧟‍♂️</CardIcon>
+        <CardIcon><img width="34px" height="34px" alt="a zombie" src={zombie} /></CardIcon>
         <StyledBalance>
           <StyledValue>{displayBalance}</StyledValue>
           <Label text="ZOMBIE Balance" />
