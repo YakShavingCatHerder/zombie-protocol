@@ -38,7 +38,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         </StyledBalance>
         <StyledBalanceActions>
           <IconButton>
-            <RemoveIcon />
+            <RemoveIcon /> 
           </IconButton>
           <StyledSpacer />
           <IconButton>

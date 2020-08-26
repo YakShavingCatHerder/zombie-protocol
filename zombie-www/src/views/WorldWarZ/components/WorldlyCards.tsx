@@ -78,15 +78,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 <CardIcon>{farm.icon}</CardIcon>
                 <StyledTitle>{farm.name}</StyledTitle>
                 <StyledDetails>
-                  <StyledDetail>Deposit {farm.depositToken.toUpperCase()}</StyledDetail>
+                {farm.depositToken.toUpperCase() === "CURVE" && <StyledDetail>Deposit CURVE_ZOMBIE_BALANCER_LP</StyledDetail>}
+                {farm.depositToken.toUpperCase() === "YFI" && <StyledDetail>Deposit YFI_ZOMBIE_BALANCER_LP</StyledDetail>}
                   <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
                 </StyledDetails>
                 <Button
-                  disabled={poolActive}
-                  text={!poolActive ? 'Select' : undefined}
+                  disabled={!poolActive}
+                  text={poolActive ? 'Select' : undefined}
                   to={`/farms/${farm.id}`}
                 >
-                  {poolActive && <Countdown date={new Date(timeStamp)} renderer={renderer} />}
+                  {/* {poolActive && <Countdown date={new Date(timeStamp)} renderer={renderer} />} */}
                 </Button>
                 <br />
                 <StyledDetail>{farm.stats1}

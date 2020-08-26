@@ -54,11 +54,26 @@ const Farm: React.FC = () => {
 
   return (
     <Page>
+      {depositTokenName === 'CURVE' &&
+      <PageHeader
+        icon={icon}
+        subtitle={`Deposit CURVE_ZOMBIE_BALANCER_LP and earn ${earnTokenName}`}
+        title={name}
+      />}
+      {depositTokenName === 'YFI' &&
+      <PageHeader
+        icon={icon}
+        subtitle={`Deposit YFI_ZOMBIE_BALANCER_LP and earn ${earnTokenName}`}
+        title={name}
+      />}
+      {depositTokenName !== 'CURVE' && depositTokenName !== 'YFI' ?
       <PageHeader
         icon={icon}
         subtitle={`Deposit ${depositTokenName} and earn ${earnTokenName}`}
         title={name}
       />
+    :
+    ''}
       <StyledFarm>
         <StyledCardsWrapper>
           <StyledCardWrapper>

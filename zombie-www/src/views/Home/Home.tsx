@@ -34,8 +34,6 @@ const Home: React.FC = () => {
   }, [yam, setStats])
 
   const checkPrice = useCallback(async () => {
-    console.log(ethereum)
-    console.log(1)
     await current_zom_value(ethereum)
   }, [ethereum, current_zom_value])
 

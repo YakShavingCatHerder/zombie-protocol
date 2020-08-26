@@ -103,46 +103,32 @@ const Farms: React.FC = ({ children }) => {
       if (tokenKey === 'eth') {
         tokenKey = 'weth'
       }
-
-      //  else if (tokenKey === 'ampl') {
-      //   tokenKey = 'ampl_eth_uni_lp'
-      // } else if (tokenKey === 'scrv') {
-      //   tokenKey = 'scrv_shrimp_uni_lp'
+      // if (tokenKey === 'yfi') {
+      //   tokenKey = 'YFI_ZOMBIE_BALANCER_LP'
+      // }
+      // if (tokenKey === 'curve') {
+      //   tokenKey = 'CURVE_ZOMBIE_BALANCER_LP'
       // }
 
-      // const method = pool.methods[tokenKey]
       try {
         let tokenAddress = ''
-        // if (method) {
-        //   tokenAddress = await method().call()
-        // } 
-
-        // if (tokenKey === 'cream') {
-        //   tokenAddress = '0x2ba592F78dB6436527729929AAf6c908497cB200'
-        // }
-
-        // if (tokenKey === 'comp') {
-        //   tokenAddress = '0xc00e94cb662c3520282e6f5717214004a7f26888'
-        // }
-
-        // if (tokenKey === 'yfi') {
-        //   tokenAddress = '0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e'
-        // }
 
         if (tokenKey === 'dai') {
           tokenAddress = '0x6b175474e89094c44da98b954eedeac495271d0f'
         }
+
         if (tokenKey === 'shrimp') {
           tokenAddress = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
         }
+
         if (tokenKey === 'dice') {
           tokenAddress = '0xCF67CEd76E8356366291246A9222169F4dBdBe64'
         }
         
-        
         if (tokenKey === 'uni') {
           tokenAddress = '0xC83E9d6bC93625863FFe8082c37bA6DA81399C47'
         }
+
         if (tokenKey === 'shrimplp') {
           tokenAddress = '0xeba5d22bbeb146392d032a2f74a735d66a32aee4'
         }
@@ -157,17 +143,6 @@ const Farms: React.FC = ({ children }) => {
         if (tokenKey === 'yfi') {
           tokenAddress = '0x1066a453127fad74d0ab1c981dffa56d76310517'
         }
-        // //Pool 95
-        // if (tokenKey === 'bsd95') {
-        //   tokenAddress = '0x00D1793D7C3aAE506257Ba985b34C76AaF642557'
-        // }
-        // //Pool 80
-        // if (tokenKey === 'bsd80') {
-        //   tokenAddress = '0x00D1793D7C3aAE506257Ba985b34C76AaF642557'
-        // }
-
-        
-        // alert(tokenAddress);
 
         farmsArr.push({
           contract: pool,

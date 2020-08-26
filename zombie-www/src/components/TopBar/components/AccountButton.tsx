@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import { useWallet } from 'use-wallet'
 
 import useModal from '../../../hooks/useModal'
-import { formatAddress } from '../../../utils'
+// import { formatAddress } from '../../../utils'
 
 import Button from '../../Button'
 

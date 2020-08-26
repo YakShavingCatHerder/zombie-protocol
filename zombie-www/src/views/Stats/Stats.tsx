@@ -8,12 +8,12 @@ import AdButton from '../../components/TopBar/components/AdvertisementFormButton
 import {
   Route,
   useParams,
-  Switch,
+  // Switch,
   useRouteMatch,
 } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 import { provider } from 'web3-core'
-import Countdown, { CountdownRenderProps } from 'react-countdown'
+// import Countdown, { CountdownRenderProps } from 'react-countdown'
 
 import farmer from '../../assets/img/farmer.png'
 
@@ -22,22 +22,22 @@ import Spacer from '../../components/Spacer'
 import Page from '../../components/Page'
 
 import useFarm from '../../hooks/useFarm'
-import useRedeem from '../../hooks/useRedeem'
+// import useRedeem from '../../hooks/useRedeem'
 import { getContract } from '../../utils/erc20'
-import Card from '../../components/Card'
-import CardContent from '../../components/CardContent'
-import CardIcon from '../../components/CardIcon'
+// import Card from '../../components/Card'
+// import CardContent from '../../components/CardContent'
+// import CardIcon from '../../components/CardIcon'
 
 import StatCards from './components/StatCards'
 
-import Farm from '../Farm'
+// import Farm from '../Farm'
 
 import {
-  delegate,
-  didDelegate,
-  getDelegatedBalance,
-  getScalingFactor,
-  getVotes,
+  // delegate,
+  // didDelegate,
+  // getDelegatedBalance,
+  // getScalingFactor,
+  // getVotes,
   vote_new_token
 } from '../../yamUtils'
 
@@ -66,15 +66,15 @@ const Stats: React.FC = () => {
     return getContract(ethereum as provider, depositTokenAddress)
   }, [ethereum, depositTokenAddress])
 
-  const { onRedeem } = useRedeem(contract)
+  // const { onRedeem } = useRedeem(contract)
 
-  const depositTokenName = useMemo(() => {
-    return depositToken.toUpperCase()
-  }, [depositToken])
+  // const depositTokenName = useMemo(() => {
+  //   return depositToken.toUpperCase()
+  // }, [depositToken])
 
-  const earnTokenName = useMemo(() => {
-    return earnToken.toUpperCase()
-  }, [earnToken]);
+  // const earnTokenName = useMemo(() => {
+  //   return earnToken.toUpperCase()
+  // }, [earnToken]);
 
   //             src/yamUtils/index.js
 

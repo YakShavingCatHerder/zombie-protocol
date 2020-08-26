@@ -1,15 +1,15 @@
-import React, { useCallback, useMemo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { yam as yamAddress } from '../../../constants/tokenAddresses'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import { getDisplayBalance } from '../../../utils/formatBalance'
+// import { getDisplayBalance } from '../../../utils/formatBalance'
 
-import Button from '../../Button'
-import CardIcon from '../../CardIcon'
-import IconButton from '../../IconButton'
-import { AddIcon, RemoveIcon } from '../../icons'
+// import Button from '../../Button'
+// import CardIcon from '../../CardIcon'
+// import IconButton from '../../IconButton'
+// import { AddIcon, RemoveIcon } from '../../icons'
 import Label from '../../Label'
 import Modalmd, { ModalProps } from '../../Modal'
 import ModalTitle from '../../ModalTitle'
@@ -34,9 +34,9 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
   };
 
   const yamBalance = useTokenBalance(yamAddress)
-  const displayBalance = useMemo(() => {
-    return getDisplayBalance(yamBalance)
-  }, [yamBalance])
+  // const displayBalance = useMemo(() => {
+  //   return getDisplayBalance(yamBalance)
+  // }, [yamBalance])
 
   return (
     <Modalmd>
