@@ -22,7 +22,7 @@ Do you know who is your true friend? Who can help you when fleeing? We no longer
 
 At core, $ZOMBIE is a shrinking-only supply cryptocurrency, which only **contracts** its supply in response to market conditions, initially targeting 100 USD per $ZOMBIE. 
 
-> If the $ZOMBIE price does not reach $100, contracts rebase will be carried out every 24 hours, and after each rebase, **if your account's zombie balace not over then 1 $ZOMBIE, your $ZOMBIE will be permanently burned.**
+> If the $ZOMBIE price does not reach $100, contracts rebase will be carried out every 24 hours, and after each rebase, **if your account's zombie balance not over then 1 $ZOMBIE, your $ZOMBIE will be permanently burned.**
 ```
 if(_zombieBalances[who].mul(zombieScalingFactor).div(internalDecimals) < 1e18){
     return 0;
