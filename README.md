@@ -22,7 +22,7 @@ Do you know who is your true friend? Who can help you when fleeing? We no longer
 
 At core, $ZOMBIE is a shrinking-only supply cryptocurrency, which only **contracts** its supply in response to market conditions, initially targeting 100 USD per $ZOMBIE. 
 
-> If the $ZOMBIE price does not reach $100, contracts rebase will be carried out every 24 hours, and after each rebase, **if your account's zombie balace not over then 1 $ZOMBIE, your $ZOMBIE will be permanently burned.**
+> If the $ZOMBIE price does not reach $100, contracts rebase will be carried out every 24 hours, and after each rebase, **if your account's zombie balance not over then 1 $ZOMBIE, your $ZOMBIE will be permanently burned.**
 ```
 if(_zombieBalances[who].mul(zombieScalingFactor).div(internalDecimals) < 1e18){
     return 0;
@@ -83,6 +83,8 @@ Pool - Eth-Shrimp  - [Smart Contract](https://etherscan.io/address/0xd82def026ec
 Pool - Dice - [Smart Contract](https://etherscan.io/address/0xcd3d97a3ebf3910d1572d4446d4303bc77ace335)  
 Pool - Eth-Dice - [Smart Contract](https://etherscan.io/address/0x934929f34c7b7611abc1aeca15769da3ca47a097)  
 Pool - Dai-Zombie - [Smart Contract](https://etherscan.io/address/0x88a131b5293ca340b454111314b6c1b5c0dfa9b9)  
+Pool - Curve-Zombie - [Smart Contract](https://etherscan.io/address/0x6f644562ca3a64cb09c1fa677a7aa41f5ad49f63)  
+Pool - YFI-Zombie - [Smart Contract](https://etherscan.io/address/0x06b1c94e8b376fc900ca7718f05ce75194385790)  
 
 Pool - Dai - Allocated transaction：[0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe](https://etherscan.io/tx/0xc02a384da906900ff33a0f2f8a65c0e0982bc9da88889a9e6d7ec93e2483e7fe)  
 Pool - Shrimp - Allocated transaction：[0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42](https://etherscan.io/tx/0x205844fdf669c1177de198c456f25866063cd9f70852ad678f37155eb27d7f42)  
@@ -90,6 +92,9 @@ Pool - Eth-Shrimp  - Allocated transaction：[0x79391f8fcb6d4f0e273b5b77371f4076
 Pool - Dice - Allocated transaction：[0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb](https://etherscan.io/tx/0x92c2a849f7bcb0533c00aaa1dbcb00b8ee54a4c9846ec965fb9d1f9514d3f3cb)  
 Pool - Eth-Dice - Allocated transaction：[0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9](https://etherscan.io/tx/0xc07a4ea7b3dfab93b3e0c89b0c2a09535f3fd3ce06aee1f839eeb135ce0b81e9)  
 Pool - Dai-Zombie - Allocated transaction：[0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3](https://etherscan.io/tx/0x4465d9e55f379bbb7da80d6988f925c6f1f76c832bb64bbcf2511f0e7ab0d5f3)  
+Pool - Curve-Zombie - Allocated transaction：[0x8ebf67e850b5597efaa0041625686142343d603d6670025bc94afe01295aa047](https://etherscan.io/tx/0x8ebf67e850b5597efaa0041625686142343d603d6670025bc94afe01295aa047)  
+Pool - Yfi-Zombie - Allocated transaction：[0x6cb5c8750578c393fdcb8bd8e9fbd439995957dbd6fe5c38a78528c6cdadfb12](https://etherscan.io/tx/0x6cb5c8750578c393fdcb8bd8e9fbd439995957dbd6fe5c38a78528c6cdadfb12)  
+
 
 There is no mint function in $ZOMBIE ERC20, the total amount of $zombie is fixed, even vitalik can’t change, please don’t ask dev to burn the admin key🙆‍♂️
 
