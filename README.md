@@ -11,6 +11,15 @@ Zombie is a social experiment game, you can see the true side of humanity only a
 
 The $ZOMBIE token combines a simplified version of Ampleforth’s economic policy with YFI’s distribution mechanism, finally we added PUBG’s poison circle mechanism! Do you think your companion will save you?
 
+**the opening date of the doomsday clock is: 2020/09/21 10:00:00 (UTC+0)**
+
+> $Zombie price >= $100 - After that day, if the price of $Zombie is more than $100, nothing will happen.
+
+> $Zombie price < $100 - After that day, if the price of $Zombie is below $100, the countdown clock will be activated.
+> Every time the clock counts down to 24 hours, a 10% debase will be performed.
+
+[More Info](https://github.com/Zombie-Finance/zombie-protocol/wiki/Doomsday-Prophecy---What-is-Doomsday-Clock-and-Debase%3F) for the doomsday
+
 ## The world is shrinking
 
 Do you know who is your true friend? Who can help you when fleeing? We no longer need a bunch of tokens that in defi list, we only need BTC + ZOMBIE. Especially when fleeing...
