@@ -6,7 +6,7 @@ import { useWallet } from 'use-wallet'
 
 import numeral from 'numeral'
 
-import TVL from './TVL';
+// import TVL frsom './TVL';
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
@@ -104,14 +104,14 @@ const Stats: React.FC<StatsProps> = ({
 
       <StyledSpacer />
 
-      <Card>
+      {/* <Card>
         <CardContent>
           <StyledStat>
               <TVL/>
             <Label text="Total Locked Value" />
           </StyledStat>
         </CardContent>
-      </Card>
+      </Card> */}
 
       <StyledSpacer />
 
