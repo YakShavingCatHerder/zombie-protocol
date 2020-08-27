@@ -39,6 +39,11 @@ import {
   log_data4
 } from '../../../yamUtils'
 
+const thousands_separators = (num: Number) => {
+  var num_parts = num.toString().split(".");
+  num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return num_parts.join(".");
+}
 
 const StatCards: React.FC = () => {
   const [farms] = useFarms()
@@ -286,27 +291,27 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
               </StyledContent>
               <br />
         ========== PRICES ==========<br />
-              {currentPrice && `ZOMBIE: $${Number(currentPrice).toLocaleString()}`}<br />
+              {currentPrice && `ZOMBIE: $${thousands_separators(Number(currentPrice))}`}<br />
 
-              {farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}: $${currentCoinPrice === '' ? Number(totalwrapped / totalDai) : Number(currentstatPrice).toLocaleString()}` : ''}
-              {farm.id === 'dicelp' && `ETH_DICE_UNISWAP_LP: $${currentCoinPrice === '1' ? Number(totalwrapped / totalDai).toFixed(2) : Number(currentstatPrice).toLocaleString()}`}
-              {farm.id === 'shrimplp' && `ETH_SHRIMP_UNISWAP_LP: $${currentCoinPrice === '1' ? Number(totalwrapped / totalDai).toFixed(2) : Number(currentstatPrice).toLocaleString()}`}
-              {farm.id === 'uni' && `DAI_ZOMBIE_UNISWAP_LP: $${currentCoinPrice === '2' ? Number(totalDaiwrapped / totalDai).toFixed(2) : Number(currentstatPrice).toLocaleString()}`}
+              {farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}: $${currentCoinPrice === '' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}` : ''}
+              {farm.id === 'dicelp' && `ETH_DICE_UNISWAP_LP: $${currentCoinPrice === '1' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
+              {farm.id === 'shrimplp' && `ETH_SHRIMP_UNISWAP_LP: $${currentCoinPrice === '1' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
+              {farm.id === 'uni' && `DAI_ZOMBIE_UNISWAP_LP: $${currentCoinPrice === '2' ? thousands_separators(Number(totalDaiwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
               {farm.id !== 'dai' && <br />}
               {farm.id === 'dai' && <>DAI: $1.00 <br /></>}
         ========== STAKING =========<br />
               {/* Total supply of ZOMBIE-{totalZom}<br/> */}
-              <> Total supply of {farm.depositToken.toLocaleUpperCase()}: {totalDai} <br />
-        Total supply of {farm.depositToken.toLocaleUpperCase()} staked in our contract: {totalDaiStaked} <br />
-        You are staking: {userStakedDai} <br />
+              <> Total supply of {farm.depositToken.toLocaleUpperCase()}: {thousands_separators(totalDai)} <br />
+        Total supply of {farm.depositToken.toLocaleUpperCase()} staked in our contract: {thousands_separators(totalDaiStaked)} <br />
+        You are staking: {thousands_separators(userStakedDai)} <br />
               </>
         ======== ZOMBIE REWARDS ========<br />
-              <>Your available rewards are: {userEarnedDai}<br />
+              <>Your available rewards are: {thousands_separators(userEarnedDai)}<br />
         APY: {DaiAPY}%<br/>
-        {currentCoinPrice === '1' && `TVL: $${(Number(totalDaiStaked)*Number(totalwrapped / totalDai)).toFixed(2)}`}
-        {currentCoinPrice === '2' && `TVL: $${(Number(totalDaiStaked)*Number(totalDaiwrapped / totalDai)).toFixed(2)}`}
-        {farm.id === 'shrimp' || farm.id === 'dice' ? `TVL: $${(Number(totalDaiStaked)*Number(currentstatPrice)).toFixed(2)}` : ''}
-        {farm.id === 'dai' && `TVL: $${(Number(totalDaiStaked)*Number(1)).toFixed(2)}` }
+        {currentCoinPrice === '1' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(totalwrapped / totalDai))}`}
+        {currentCoinPrice === '2' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(totalDaiwrapped / totalDai))}`}
+        {farm.id === 'shrimp' || farm.id === 'dice' ? `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(currentstatPrice))}` : ''}
+        {farm.id === 'dai' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(1))}` }
         </>
             </CardContent>
           </Card>
