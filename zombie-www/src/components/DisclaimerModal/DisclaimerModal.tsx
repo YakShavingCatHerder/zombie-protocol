@@ -24,13 +24,13 @@ const DisclaimerModal: React.FC<DisclaimerModal> = ({ onConfirm, onDismiss }) =>
       return (
         <div>
           <p>Audits: None. (This project is in beta. Use at your own risk.)</p>
-          <p>🔥 The army of zombies is coming!<br/><br/>
+          <p>🔥 Start early DDay voting begins! Please don't stop the zombie army!<br/><br/>
 
-          🚨Fake zombie coin alert<br/>
+          {/* 🚨Fake zombie coin alert<br/>
           　　0x0c93637a42680e8f76bea2bb230ea4fd32a90b96(Fake)<br/>
           <span style={{fontWeight: "bold"}}>　　ZOMBIE/ETH in Uniswap pair is fake!</span><br/><br/>
 
-          　　Real zombie erc20 address: <br/>　　0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8(Real)<br/><br/>
+          　　Real zombie erc20 address: <br/>　　0xd55BD2C12B30075b325Bc35aEf0B46363B3818f8(Real)<br/><br/> */}
 
           🙌 Be mindful that zombies are by your side!</p>
         </div>
