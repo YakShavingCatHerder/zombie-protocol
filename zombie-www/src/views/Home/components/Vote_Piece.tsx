@@ -26,14 +26,11 @@ import {
 interface VoteProps {
 }
 
-const METER_TOTAL = 280000
 const WARNING_TIMESTAMP = 1598000400000
 
 const Voter: React.FC<VoteProps> = () => {
   const [totalVotes, setTotalVotes] = useState(new Number)
-  // const [scalingFactor, setScalingFactor] = useState(new BigNumber(1))
-  // const [delegated, setDelegated] = useState(false)
-  // const [delegatedBalance, setDelegatedBalance] = useState(new BigNumber(0))
+  const [circulating, setcirculating] = useState(new Number)
 
   const { account, ethereum } = useWallet()
   const yam = useYam()
@@ -59,8 +56,25 @@ const Voter: React.FC<VoteProps> = () => {
     })
   }, [yam, setTotalVotes])
 
+
+  const circulation = useCallback(() => {
+    const now_time = Date.now();
+    const now_timestamp = now_time / 1000
+    if (now_timestamp < 1598529600) {
+      var total_reveal_percent = (now_timestamp - 1598270400) * 2 / (60 * 60 * 24 * 73)
+      setcirculating(Number(total_reveal_percent))
+    } else if (now_timestamp < 1604318400) {
+      var total_reveal_percent = ((1598529600 - 1598270400) * 2 + (now_timestamp - 1598529600)) / (60 * 60 * 24 * 73)
+      setcirculating(Number(total_reveal_percent))
+    } else {
+      var total_reveal_percent = 306760
+      setcirculating(Number(total_reveal_percent))
+    }
+  }, [setcirculating])
+
   useEffect(() => {
     if (yam) {
+      circulation()
       fetchVotes()
     }
     const refetch = setInterval(fetchVotes, 10000)
@@ -89,10 +103,10 @@ const Voter: React.FC<VoteProps> = () => {
               display: 'flex',
             }}>
               <StyledTitle>
-                <div>{(Number(totalVotes)* 1.5).toLocaleString()}</div>
+                <div>{(Number(totalVotes)).toLocaleString()}</div>
               </StyledTitle>
               <StyledDenominator>
-                <div>{`/ 224,746`}</div>
+                <div>{`/ ${(306760 * Number(circulating)).toFixed(2)}`}</div>
               </StyledDenominator>
             </div>
             {/* <div style={{
@@ -112,7 +126,7 @@ const Voter: React.FC<VoteProps> = () => {
         </div>
         <Spacer />
         <StyledCheckpoints>
-          <StyledCheckpoint left={140000 / METER_TOTAL * 100}>
+          <StyledCheckpoint left={((306760 * Number(circulating)) / 2) / (306760 * Number(circulating)) * 100}>
             <StyledCheckpointText left={-50}>
               <div>Proposal Passed</div>
               <div>100,000</div>
@@ -120,10 +134,10 @@ const Voter: React.FC<VoteProps> = () => {
           </StyledCheckpoint>
         </StyledCheckpoints>
         <StyledMeter>
-          <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (Number(totalVotes) * 1.5 )/ 224746} />
+          <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (Number(totalVotes) * 1.5 )/ (306760 * Number(circulating))} />
         </StyledMeter>
         <Spacer />
-        <Button text="I do solemnly swear" onClick={y_vote} />
+        <Button text="Yes" onClick={y_vote} />
         {/* ) : (
           <div>
             {/* <StyledDelegatedCount>Delegating: {Number(delegatedBalance.multipliedBy(scalingFactor).toFixed(0)).toLocaleString()} YAM</StyledDelegatedCount> 
@@ -136,23 +150,23 @@ const Voter: React.FC<VoteProps> = () => {
           paddingTop: 24,
           opacity: 0.6,
         }}>
-          <p>Proposal 1(Rehearsal Proposal), </p>
-          <p>Shrimp Declaration of Independence!</p>
-          <p>I do solemnly swear that I am a shrimp, and that I know the obligation of shrimp.<br />
-        I will do my best to protect this community, so no others can beat us.<br /><br />
-
-More then that, I will invite other projects to create advanced pools. As I know they need us and we need them.<br /><br />
-
-For I am just one of many shrimp, who knows they could be eaten in here.<br />
-But I will do a serious review of this community, for I am a shrimp!</p>
-          <div style={{
+          <p>First and final proposal, </p>
+          <p>Whether to turn on the doomsday clock earlier or not. <br/><br/>
+We will take a snapshot of voting on 2020/09/02 10:00:00 (UTC+0). You can choose to vote early, but after voting, the calculation will be based on the balance in your address. <br/>
+Therefore, if you sell your tokens or farm extra tokens after voting, it will not count.<br/>
+After the vote is passed, we will start the doomsday clock on 9/7 10:00:00 (UTC+0)<br/><br/>
+As long as more than half of the circulation is voted, we will start DDay!<br/>
+How to calculate votes: Zombie, Dai/Zombie Lp, Curve/Zombie Lp, Yfi/Zombie Lp<br/><br/>
+*There is no need to convert LP tokens back to Zombie, the system will automatically convert LP tokens to Zombie quantity.<br/> You only need to withdraw LP tokens from the farming contract to your address.
+*What is DDay?</p>
+          {/* <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             marginTop: 32,
           }}>
             <StyledLink target="__blank" href="https://github.com/shrimp-finance/shrimp-protocol/wiki/Shrimp-Declaration-of-Independence">More Info</StyledLink>
-          </div>
+          </div> */}
         </div>
         {/* <div style={{
           display: 'flex',

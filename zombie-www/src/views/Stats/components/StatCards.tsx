@@ -27,7 +27,7 @@ import YFIPool from '../../../yam/clean_build/contracts/YFIPool.json';
 
 
 import {
-  getPoolStartTime, current_zom_value,
+  current_zom_value,
   current_Dai_value,
   current_DaiStaked_value,
   current_UserDaiStaked_value,
@@ -147,24 +147,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       var nowAbi = nonlpSHRIMPPoolJson.abi
       var currentCoinPrice = 'shrimp-finance'
   }
-
-
-  const getStartTime = useCallback(async () => {
-    const startTime = await getPoolStartTime(farm.contract)
-    setStartTime(startTime)
-  }, [farm, setStartTime])
-
-  const renderer = (countdownProps: CountdownRenderProps) => {
-    const { hours, minutes, seconds } = countdownProps
-    const paddedSeconds = seconds < 10 ? `0${seconds}` : seconds
-    const paddedMinutes = minutes < 10 ? `0${minutes}` : minutes
-    const paddedHours = hours < 10 ? `0${hours}` : hours
-    return (
-      <span style={{ width: '100%' }}>{paddedHours}:{paddedMinutes}:{paddedSeconds}</span>
-    )
-  }
-
-  const poolActive = startTime * 1000 - Date.now() <= 0
 
   const get_wrapped_value = useCallback(async (num) => {
     const totalwrapped = await log_data(ethereum, cAddress, nowAbi);

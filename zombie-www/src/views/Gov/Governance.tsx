@@ -46,7 +46,7 @@ const Vote: React.FC = () => {
 
   return (
     <Page>
-      <PageHeader icon="🧟‍♂️" subtitle="Vote for changes here" />
+      <PageHeader icon="aa" subtitle="The governments are gone and someone has to make a choice." />
       <div style={{
         alignItems: 'center',
         display: 'flex',
@@ -54,7 +54,7 @@ const Vote: React.FC = () => {
         justifyContent: 'center',
         marginBottom: "20px"
       }}>
-        <VoteButton />
+        {!account && <VoteButton />}
       </div>
 
       <div>
@@ -66,9 +66,9 @@ const Vote: React.FC = () => {
             {/* <StyledVote>
               <Vote_Piece3 />
             </StyledVote> */}
-            <StyledVote>
+            {/* <StyledVote>
               <Vote_Piece2 />
-            </StyledVote>
+            </StyledVote> */}
             <br/>
             <StyledVote>
               <Vote_Piece />

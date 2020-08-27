@@ -6,7 +6,7 @@ import { useWallet } from 'use-wallet'
 
 import numeral from 'numeral'
 
-// import TVL from './TVL';
+import TVL from './TVL';
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
@@ -14,12 +14,6 @@ import Label from '../../../components/Label'
 import { getDisplayBalance } from '../../../utils/formatBalance'
 import BigNumber from 'bignumber.js'
 
-import DAIPoolJson from '../../../yam/clean_build/contracts/YAMCOMPPool.json';
-import UNIPoolJson from '../../../yam/clean_build/contracts/ShrimpUniPool.json';
-import nonlpDicePool from '../../../yam/clean_build/contracts/nonlpDicePool.json'
-import DICEPoolJson from '../../../yam/clean_build/contracts/SHRIMPDICEPool.json';
-import SHRIMPPoolJson from '../../../yam/clean_build/contracts/ShrimpTacoPool.json';
-import nonlpSHRIMPPoolJson from '../../../yam/clean_build/contracts/nonlpShrimpPool.json';
 
 import useYam from '../../../hooks/useYam'
 
@@ -110,14 +104,14 @@ const Stats: React.FC<StatsProps> = ({
 
       <StyledSpacer />
 
-      {/* <Card>
+      <Card>
         <CardContent>
           <StyledStat>
               <TVL/>
             <Label text="Total Locked Value" />
           </StyledStat>
         </CardContent>
-      </Card> */}
+      </Card>
 
       <StyledSpacer />
 

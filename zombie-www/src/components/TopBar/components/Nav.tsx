@@ -9,7 +9,7 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/farms">Zombie Swarms</StyledLink>
       <StyledLink exact activeClassName="active" to="/wwz">WWZ</StyledLink>      
        <StyledLink exact activeClassName="active" to="/stats">Stats</StyledLink>
-      {/*<StyledLink exact activeClassName="active" to="/Vote">Vote</StyledLink> */}
+      <StyledLink exact activeClassName="active" to="/Vote">Last Stand</StyledLink>
     </StyledNav>
   )
 }
