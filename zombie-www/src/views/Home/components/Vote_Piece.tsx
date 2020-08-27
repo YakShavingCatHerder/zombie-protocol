@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import BigNumber from 'bignumber.js'
+// import BigNumber from 'bignumber.js'
 import Countdown, { CountdownRenderProps } from 'react-countdown'
 
 import { useWallet } from 'use-wallet'
@@ -14,13 +14,13 @@ import Spacer from '../../../components/Spacer'
 import useYam from '../../../hooks/useYam'
 
 import {
-  delegate,
-  didDelegate,
-  getDelegatedBalance,
-  getScalingFactor,
+  // delegate,
+  // didDelegate,
+  // getDelegatedBalance,
+  // getScalingFactor,
   getVotes_piece,
   get_y_n_vote,
-  get_counted_votes
+  // get_counted_votes
 } from '../../../yamUtils'
 
 interface VoteProps {
