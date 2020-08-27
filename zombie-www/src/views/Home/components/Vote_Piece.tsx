@@ -151,14 +151,13 @@ const Voter: React.FC<VoteProps> = () => {
           opacity: 0.6,
         }}>
           <p>First and final proposal, </p>
-          <p>Whether to turn on the doomsday clock earlier or not. <br/><br/>
-We will take a snapshot of voting on 2020/09/02 10:00:00 (UTC+0). You can choose to vote early, but after voting, the calculation will be based on the balance in your address. <br/>
-Therefore, if you sell your tokens or farm extra tokens after voting, it will not count.<br/>
-After the vote is passed, we will start the doomsday clock on 9/7 10:00:00 (UTC+0)<br/><br/>
+          <p><span style={{fontWeight: "bold"}}>Whether to turn on the doomsday clock earlier or not.</span><br/><br/>
+This poll will end on 2020/09/02 10:00:00 (UTC+0). There is no need to unstake when voting, the system will detect that your Zombie tokens are in different pools
+<br/><br/>
+<span style={{color: "red", fontWeight: "bold"}}>After the vote is passed, we will start the doomsday clock on 2020/09/07 10:00:00 (UTC+0)</span><br/><br/>
 As long as more than half of the circulation is voted, we will start DDay!<br/>
 How to calculate votes: Zombie, Dai/Zombie Lp, Curve/Zombie Lp, Yfi/Zombie Lp<br/><br/>
-*There is no need to convert LP tokens back to Zombie, the system will automatically convert LP tokens to Zombie quantity.<br/> You only need to withdraw LP tokens from the farming contract to your address.
-*What is DDay?</p>
+*What is <a target="_blank" href="https://github.com/Zombie-Finance/zombie-protocol/wiki/Doomsday-Prophecy---What-is-Doomsday-Clock-and-Debase%3F">DDay</a>?</p>
           {/* <div style={{
             display: 'flex',
             alignItems: 'center',
