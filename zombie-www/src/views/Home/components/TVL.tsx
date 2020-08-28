@@ -21,11 +21,7 @@ import {
 
 
 const TVL: React.FC = () => {
-
   const [dicelptvl, setdicelptvl] = useState("loading...")
-
-
-  const [currentstatPrice, setCurrentstatPrice] = useState(new Number)
 
   const yam = useYam()
   const { ethereum } = useWallet()
@@ -81,7 +77,6 @@ const TVL: React.FC = () => {
         token_name = tokenname
         return currentCoinPrice;
       default:
-        //shrimp data i dont know why i chose this/s
         address = '0x1dD61127758c47Ab95a1931E02D3517f8d0dD1A6'
         cAddress = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
         nowAbi = nonlpSHRIMPPoolJson.abi
@@ -132,17 +127,19 @@ const TVL: React.FC = () => {
         }
       })
     }
-  }, [setCurrentstatPrice])
+  }, [yam])
 
   const get_prices_wrapped = useCallback(async (num, old_tvl) => {
           getdaistaked(num, 0,old_tvl)
-  }, [yam, setCurrentstatPrice])
+  }, [yam])
 
   const get_prices = useCallback(async (num, old_tvl) => {
           getdaistaked(num,0, old_tvl)
-  }, [yam, setCurrentstatPrice])
+  }, [yam])
 
   const setCurrentTVl = useCallback(async (num, stake, oldtvl) => {
+    //stake is the value staked
+    //num is the current value of the coin
     var new_tvl = 0;
     switch (token_name) {
       case 'shrimp':
@@ -187,7 +184,7 @@ const TVL: React.FC = () => {
   return (
     <>
 
-      <div style={{ fontSize: '23px' }}>
+      <div>
         {(dicelptvl)}
       </div>
     </>

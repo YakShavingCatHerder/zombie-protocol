@@ -18,7 +18,7 @@ import { getDisplayBalance } from '../../../utils/formatBalance'
 import zombie from '../../../assets/img/zombie.png'
 interface HarvestProps {
   poolContract: Contract
-}
+} 
 
 const Harvest: React.FC<HarvestProps> = ({ poolContract }) => {
 

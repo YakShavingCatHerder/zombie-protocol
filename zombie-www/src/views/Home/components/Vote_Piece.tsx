@@ -112,17 +112,6 @@ const Voter: React.FC<VoteProps> = () => {
                 <div>{`/ ${(306760 * Number(circulating)).toFixed(2)}`}</div>
               </StyledDenominator>
             </div>
-            {/* <div style={{
-              alignItems: 'baseline',
-              display: 'flex',
-            }}>
-              <div style={{ fontSize: 12 }}>{`${Number(totalVotes.multipliedBy(scalingFactor).toFixed(0)).toLocaleString()}`}</div>
-              <div style={{
-                  fontSize: 12,
-                  marginTop: 4,
-                  marginLeft: 4,
-                }}>{`/ ${Number(new BigNumber(160000).multipliedBy(scalingFactor).toFixed(0)).toLocaleString()} YAM`}</div>
-            </div> */}
             <br />
             <br />
           </StyledCenter>

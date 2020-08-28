@@ -17,17 +17,6 @@ import BigNumber from 'bignumber.js'
 
 import useYam from '../../../hooks/useYam'
 
-import {
-  current_zom_value,
-  current_Dai_value,
-  current_DaiStaked_value,
-  current_UserDaiStaked_value,
-  current_UserDaiEarned_value,
-  current_DaiAPY,
-  log_data,
-  log_data2
-} from '../../../yamUtils'
-
 interface StatsProps {
   circSupply?: string,
   curPrice?: number,
@@ -43,15 +32,7 @@ const Stats: React.FC<StatsProps> = ({
 }) => {
   const [currentPrice, setCurrentPrice] = useState(new Number)
   const [circulating, setcirculating] = useState(new Number)
-  const [totalTokenPrice, setTotalTokenPrice] = useState(0)
-  const [totalDai, setTotalDai] = useState(0)
-  const [totalDaiStaked, setTotalDaiStaked] = useState(0)
-  const [userStakedDai, setUserStakedDai] = useState(0)
-  const [userEarnedDai, setUserEarnedDai] = useState(0)
-  const [total, setTotal] = useState(0)
-  const [totalwrapped, settotalwrapped] = useState(0)
-  const [totalDaiwrapped, settotalDaiwrapped] = useState(0)
-
+  
   const [currentstatPrice, setCurrentstatPrice] = useState(new Number)
 
   const formattedTotalSupply = useMemo(() => {
@@ -109,12 +90,14 @@ const Stats: React.FC<StatsProps> = ({
           <StyledStat>
           {!account ? (
            <>
-           <div style={{ fontSize: '23px' }}>
+           <StyledValue>
              {"unlock wallet"}
-           </div>
+            </StyledValue>
          </>
           ) : (
-            <TVL/>
+            <StyledValue>
+             <TVL/>
+            </StyledValue>
           )}
             <Label text="Total Locked Value" />
           </StyledStat>

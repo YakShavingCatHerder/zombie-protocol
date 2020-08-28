@@ -63,6 +63,30 @@ export const log_data2 = async (ethereum, address, abi) => {
   }
 }
 
+export const current_Dai_value = async (ethereum, address) => {
+  var tot = 0;
+  if (ethereum && address) {
+    const web3 = new Web3(ethereum);
+    const my_proposal = new web3.eth.Contract(erc20_abi.abi, address);
+    await my_proposal.methods.totalSupply().call().then(function (events) {
+      tot = web3.utils.fromWei(events, 'ether')
+    })
+    return tot
+  }
+}
+
+export const current_DaiStaked_value = async (ethereum, address) => {
+  var tot = 0;
+  if (ethereum && address) {
+    const web3 = new Web3(ethereum);
+    const my_proposal = new web3.eth.Contract(erc20_abi.abi, address);
+    await my_proposal.methods.totalSupply().call().then(function (events) {
+      tot = web3.utils.fromWei(events, 'ether')
+    })
+    return tot
+  }
+}
+
 export const log_data3 = async (ethereum, address, abi) => {
   //first step of wrapped eth
   var tot = 0;
@@ -88,30 +112,6 @@ export const log_data4 = async (ethereum, address, abi) => {
       tot = web3.utils.fromWei(events, 'ether')
     })
     return (tot * 2)
-  }
-}
-
-export const current_Dai_value = async (ethereum, address) => {
-  var tot = 0;
-  if (ethereum && address) {
-    const web3 = new Web3(ethereum);
-    const my_proposal = new web3.eth.Contract(erc20_abi.abi, address);
-    await my_proposal.methods.totalSupply().call().then(function (events) {
-      tot = web3.utils.fromWei(events, 'ether')
-    })
-    return tot
-  }
-}
-
-export const current_DaiStaked_value = async (ethereum, address) => {
-  var tot = 0;
-  if (ethereum && address) {
-    const web3 = new Web3(ethereum);
-    const my_proposal = new web3.eth.Contract(erc20_abi.abi, address);
-    await my_proposal.methods.totalSupply().call().then(function (events) {
-      tot = web3.utils.fromWei(events, 'ether')
-    })
-    return tot
   }
 }
 
@@ -202,7 +202,7 @@ export const harvest = async (poolContract, account) => {
   } else {
     alert("pool not active");
   }
-}
+} 
 
 export const redeem = async (poolContract, account) => {
   let now = new Date().getTime() / 1000;
@@ -337,9 +337,9 @@ export const getPoolContracts = async (yam) => {
 }
 
 export const getEarned = async (yam, pool, account) => {
-  // const scalingFactor = new BigNumber(await yam.contracts.yam.methods.yamsScalingFactor().call())
+  const scalingFactor = new BigNumber(await yam.contracts.yam.methods.yamsScalingFactor().call())
   const earned = new BigNumber(await pool.methods.earned(account).call())
-  return earned;
+  return earned.multipliedBy(scalingFactor.dividedBy(new BigNumber(10).pow(18)))
 }
 
 export const getStaked = async (yam, pool, account) => {

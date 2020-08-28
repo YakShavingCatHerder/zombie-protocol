@@ -302,6 +302,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             {farm.id === 'uni' && `DAI_ZOMBIE_UNISWAP_LP: $${currentCoinPrice === '2' ? thousands_separators(Number(totalDaiwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
             {farm.id !== 'dai' && <br />}
             {farm.id === 'dai' && <>DAI: $1.00 <br /></>}
+            {currentCoinPrice === '1' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(totalwrapped / totalDai))}`}
+            {currentCoinPrice === '2' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(totalDaiwrapped / totalDai))}`}
+        {farm.id === 'dice'
+         ? `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(currentstatPrice))}` : ''}
+         {farm.id === 'shrimp'
+         ? `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(currentstatPrice))}` : ''}
+         {farm.id === 'dai'
+         ? `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(currentstatPrice))}` : ''}
+         
+            <br/>
         ========== STAKING =========<br />
             {/* Total supply of ZOMBIE-{totalZom}<br/> */}
             <> Total supply of {farm.depositToken.toLocaleUpperCase()}: {thousands_separators(totalDai)} <br />
@@ -310,7 +320,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             </>
         ======== ZOMBIE REWARDS ========<br />
             <>Your available rewards are: {thousands_separators(userEarnedDai)}<br />
-              <span style={{ fontWeight: 900 }}>APY: {DaiAPY}%</span><br />
+              <span style={{ fontWeight: 900 }}>APY: {thousands_separators(DaiAPY)}%</span><br />
             </>
           </CardContent>
         </Card>
