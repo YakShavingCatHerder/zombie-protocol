@@ -224,13 +224,25 @@ export const approve = async (tokenContract, poolContract, account) => {
     .approve(poolContract.options.address, ethers.constants.MaxUint256)
     .send({ from: account, gas: 80000 })
 }
+//
+//see if user has voted before or not 
+//
+export const get_canVote = async (provider, account) => {
+  if (provider) {
+    const web3 = new Web3(provider);
+    const my_proposal = new web3.eth.Contract(ProposalJson.abi, ProposalJson.networks[1].address);
+    return my_proposal.methods
+      .vote_content(account, 0).call().then(function (events) {
+        return events
+      })
+  }
+}
 //after adding more parameters update the id to be a param 
 //which is unique to the voting option
 export const get_y_n_vote = async (provider, account) => {
   if (provider) {
     const web3 = new Web3(provider);
     const my_proposal = new web3.eth.Contract(ProposalJson.abi, ProposalJson.networks[1].address);
-    console.log(my_proposal)
     return my_proposal.methods
       .agree_vote(0)
       .send({ from: account })
@@ -259,7 +271,12 @@ export const get_counted_votes = async (provider) => {
 
         for (let i = 0; i < events.length; i++) {
           if (events[i].returnValues.id === "0") {
-            votes.push(events[i].returnValues.voter)
+            console.log(events[i].returnValues.voter)
+            if(votes.includes(events[i].returnValues.voter)){
+            } else {
+              votes.push(events[i].returnValues.voter)
+            }
+            
           }
         }
         my_proposal.methods.get_vote(0, votes).call().then(function (events) {
@@ -438,7 +455,10 @@ export const getVotes_piece = async (provider) => {
   }, function (error, events) { }).then(function (events) {
     for (let i = 0; i < events.length; i++) {
       if (events[i].returnValues.id === "0") {
+        if(votes.includes(events[i].returnValues.voter)){
+        } else {
         votes.push(events[i].returnValues.voter)
+        }
       }
     }
   });

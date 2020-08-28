@@ -109,7 +109,12 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
                 <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
               </StyledDetails>
-              {!poolActive ?
+              <Button
+                        disabled={!poolActive}
+                        text={poolActive ? 'Select' : undefined}
+                        to={`/farms/${farm.id}`}
+                      />
+              {/* {!poolActive ?
                 <>
                   <Button
                     disabled={!poolActive}
@@ -151,7 +156,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                     </>
                     )}
                 </>
-              }
+              } */}
             </StyledContent>
             <StyledDetailing>
               {farm.stats1}

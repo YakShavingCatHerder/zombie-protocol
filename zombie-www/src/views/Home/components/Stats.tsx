@@ -2,11 +2,11 @@ import React, { useMemo, useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import axios from "axios";
 
-import { useWallet } from 'use-wallet'
+import { useWallet } from 'use-wallet';
 
 import numeral from 'numeral'
 
-// import TVL frsom './TVL';
+import TVL from './TVL';
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
@@ -104,14 +104,22 @@ const Stats: React.FC<StatsProps> = ({
 
       <StyledSpacer />
 
-      {/* <Card>
+      <Card>
         <CardContent>
           <StyledStat>
-              <TVL/>
+          {!account ? (
+           <>
+           <div style={{ fontSize: '23px' }}>
+             {"unlock wallet"}
+           </div>
+         </>
+          ) : (
+            <TVL/>
+          )}
             <Label text="Total Locked Value" />
           </StyledStat>
         </CardContent>
-      </Card> */}
+      </Card>
 
       <StyledSpacer />
 

@@ -14,13 +14,9 @@ import Spacer from '../../../components/Spacer'
 import useYam from '../../../hooks/useYam'
 
 import {
-  // delegate,
-  // didDelegate,
-  // getDelegatedBalance,
-  // getScalingFactor,
   getVotes_piece,
   get_y_n_vote,
-  // get_counted_votes
+  get_canVote
 } from '../../../yamUtils'
 
 interface VoteProps {
@@ -31,6 +27,7 @@ const WARNING_TIMESTAMP = 1599012000000
 const Voter: React.FC<VoteProps> = () => {
   const [totalVotes, setTotalVotes] = useState(new Number)
   const [circulating, setcirculating] = useState(new Number)
+  const [canVote, setCanVote] = useState(true);
 
   const { account, ethereum } = useWallet()
   const yam = useYam()
@@ -45,6 +42,11 @@ const Voter: React.FC<VoteProps> = () => {
       <StyledCountdown>{totalhours > 24 ? totalhours : paddedHours}:{paddedMinutes}:{paddedSeconds}</StyledCountdown>
     )
   }
+
+  const getCanVote = useCallback(async () => {
+    const canVote = await get_canVote(ethereum, account)
+    setCanVote(canVote)
+  }, [ethereum, account])
 
   const y_vote = useCallback(() => {
     get_y_n_vote(ethereum, account)
@@ -76,6 +78,7 @@ const Voter: React.FC<VoteProps> = () => {
     if (yam) {
       circulation()
       fetchVotes()
+      getCanVote()
     }
     const refetch = setInterval(fetchVotes, 10000)
     return () => clearInterval(refetch)
@@ -137,7 +140,7 @@ const Voter: React.FC<VoteProps> = () => {
           <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (Number(totalVotes) * 1.5 )/ (306760 * Number(circulating))} />
         </StyledMeter>
         <Spacer />
-        <Button text="Yes" onClick={y_vote} />
+        {!canVote ? <Button text="Yes" onClick={y_vote} /> : <Button disabled={true} text="Thank you for voting" />}
         {/* ) : (
           <div>
             {/* <StyledDelegatedCount>Delegating: {Number(delegatedBalance.multipliedBy(scalingFactor).toFixed(0)).toLocaleString()} YAM</StyledDelegatedCount> 

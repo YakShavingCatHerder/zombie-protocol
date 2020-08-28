@@ -40,7 +40,8 @@ import {
 } from '../../../yamUtils'
 
 const thousands_separators = (num: Number) => {
-  var num_parts = num.toString().split(".");
+  var numerator = num.toFixed(2);
+  var num_parts = numerator.split(".");
   num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return num_parts.join(".");
 }
@@ -50,9 +51,15 @@ const StatCards: React.FC = () => {
   const rows = farms.reduce<Farm[][]>((farmRows, farm) => {
     const newFarmRows = [...farmRows]
     if (newFarmRows[newFarmRows.length - 1].length) {
-      newFarmRows.push([farm])
+      if (farm.sort === 1 || farm.sort === 0) {
+      } else {
+        newFarmRows.push([farm])
+      }
     } else {
-      newFarmRows[newFarmRows.length - 1].push(farm)
+      if (farm.sort === 1 || farm.sort === 0) {
+      } else {
+        newFarmRows[newFarmRows.length - 1].push(farm)
+      }
     }
     return newFarmRows
   }, [[]])
@@ -133,20 +140,20 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       var nowAbi = DICEPoolJson.abi
       var currentCoinPrice = '1'
       break;
-      case 'curve':
+    case 'curve':
       var address = '0xDA4B031B5ECE42ABB394A9d2130eAA958C2A8B38'
       var cAddress = '0x6F644562cA3A64CB09c1Fa677a7AA41F5aD49f63'
       var nowAbi = CURVPool.abi
       var currentCoinPrice = '4'
       break;
-      case 'yfi':
+    case 'yfi':
       var address = '0x1066a453127fad74d0ab1c981dffa56d76310517'
       var cAddress = '0x06B1c94e8B376Fc900cA7718F05cE75194385790'
       var nowAbi = YFIPool.abi
       var currentCoinPrice = '3'
       break;
     default:
-      //shrimp data i dont know why i chose this/s
+      //shrimp data i dont know why i chose this
       var address = '0x1dD61127758c47Ab95a1931E02D3517f8d0dD1A6'
       var cAddress = '0x38c4102D11893351cED7eF187fCF43D33eb1aBE6'
       var nowAbi = nonlpSHRIMPPoolJson.abi
@@ -156,25 +163,25 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const get_wrapped_value = useCallback(async (num) => {
     const totalwrapped = await log_data(ethereum, cAddress, nowAbi);
     settotalwrapped(totalwrapped);
-    get_prices_wrapped(totalwrapped/Number(num))
+    get_prices_wrapped(totalwrapped / Number(num))
   }, [yam])
 
   const get_altwrapped_value = useCallback(async (num) => {
     const totalDaiwrapped = await log_data2(ethereum, cAddress, nowAbi);
     settotalDaiwrapped(totalDaiwrapped);
-    get_prices_wrapped(totalDaiwrapped/Number(num))
+    get_prices_wrapped(totalDaiwrapped / Number(num))
   }, [yam])
 
   const get_yfiwrapped_value = useCallback(async (num) => {
     const totalDaiwrapped = await log_data3(ethereum, cAddress, nowAbi);
     settotalDaiwrapped(totalDaiwrapped);
-    get_prices_wrapped(totalDaiwrapped/Number(num))
+    get_prices_wrapped(totalDaiwrapped / Number(num))
   }, [yam])
 
   const get_crvwrapped_value = useCallback(async (num) => {
     const totalDaiwrapped = await log_data4(ethereum, cAddress, nowAbi);
     settotalDaiwrapped(totalDaiwrapped);
-    get_prices_wrapped(totalDaiwrapped/Number(num))
+    get_prices_wrapped(totalDaiwrapped / Number(num))
   }, [yam])
 
   const gettots = useCallback(async () => {
@@ -185,13 +192,13 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const getdai = useCallback(async () => {
     const totalDai = await current_Dai_value(ethereum, cAddress);
     setTotalDai(Number(totalDai))
-    if(currentCoinPrice === '1'){
+    if (currentCoinPrice === '1') {
       get_wrapped_value(totalDai)
-    } else if(currentCoinPrice === '2'){
+    } else if (currentCoinPrice === '2') {
       get_altwrapped_value(totalDai)
-    } else if(currentCoinPrice === '3'){
+    } else if (currentCoinPrice === '3') {
       get_yfiwrapped_value(totalDai)
-    } else if(currentCoinPrice === '4'){
+    } else if (currentCoinPrice === '4') {
       get_crvwrapped_value(totalDai)
     }
   }, [yam])
@@ -215,7 +222,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const getDaiAPY = useCallback(async (stakenum, numm, zomNum) => {
     const DaiAPY = await current_DaiAPY(ethereum, address, nowAbi);
     let num = Number(DaiAPY) * 60 * 60 * 24 * 365 * Number(zomNum);
-    
+
     setDaiAPY(num / (stakenum * Number(numm)) * 100)
   }, [yam])
 
@@ -238,7 +245,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
         setCurrentPrice(Number(res.data['zombie-finance'].usd))
         if (yam) {
           gettots()
-          getdai()
           getdaistaked(num, Number(res.data['zombie-finance'].usd))
           getUserStakedDai()
           getUserEarnedDai()
@@ -267,9 +273,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       getdai()
     } else if (currentCoinPrice === '2') {
       getdai()
-    }  else if (currentCoinPrice === '3') {
+    } else if (currentCoinPrice === '3') {
       getdai()
-    }  else if (currentCoinPrice === '4') {
+    } else if (currentCoinPrice === '4') {
       getdai()
     } else {
       callPrice()
@@ -279,44 +285,36 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   }, [])
 
   return (
-    <>{farm.sort === 1 || farm.sort === 0 ?
-    ''
-    :
-    
-        <StyledCardWrapper>
-          <Card>
-            <CardContent>
-              <StyledContent>
-                <span>{farm.icon} {farm.name}</span>
-              </StyledContent>
-              <br />
+    <>
+      <StyledCardWrapper>
+        <Card>
+          <CardContent>
+            <StyledContent>
+              <span>{farm.icon} {farm.name}</span>
+            </StyledContent>
+            <br />
         ========== PRICES ==========<br />
-              {currentPrice && `ZOMBIE: $${thousands_separators(Number(currentPrice))}`}<br />
+            {currentPrice && `ZOMBIE: $${thousands_separators(Number(currentPrice))}`}<br />
 
-              {farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}: $${currentCoinPrice === '' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}` : ''}
-              {farm.id === 'dicelp' && `ETH_DICE_UNISWAP_LP: $${currentCoinPrice === '1' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
-              {farm.id === 'shrimplp' && `ETH_SHRIMP_UNISWAP_LP: $${currentCoinPrice === '1' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
-              {farm.id === 'uni' && `DAI_ZOMBIE_UNISWAP_LP: $${currentCoinPrice === '2' ? thousands_separators(Number(totalDaiwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
-              {farm.id !== 'dai' && <br />}
-              {farm.id === 'dai' && <>DAI: $1.00 <br /></>}
+            {farm.id === 'shrimp' || farm.id === 'dice' ? `${farm.id.toLocaleUpperCase()}: $${currentCoinPrice === '' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}` : ''}
+            {farm.id === 'dicelp' && `ETH_DICE_UNISWAP_LP: $${currentCoinPrice === '1' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
+            {farm.id === 'shrimplp' && `ETH_SHRIMP_UNISWAP_LP: $${currentCoinPrice === '1' ? thousands_separators(Number(totalwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
+            {farm.id === 'uni' && `DAI_ZOMBIE_UNISWAP_LP: $${currentCoinPrice === '2' ? thousands_separators(Number(totalDaiwrapped / totalDai)) : thousands_separators(Number(currentstatPrice))}`}
+            {farm.id !== 'dai' && <br />}
+            {farm.id === 'dai' && <>DAI: $1.00 <br /></>}
         ========== STAKING =========<br />
-              {/* Total supply of ZOMBIE-{totalZom}<br/> */}
-              <> Total supply of {farm.depositToken.toLocaleUpperCase()}: {thousands_separators(totalDai)} <br />
+            {/* Total supply of ZOMBIE-{totalZom}<br/> */}
+            <> Total supply of {farm.depositToken.toLocaleUpperCase()}: {thousands_separators(totalDai)} <br />
         Total supply of {farm.depositToken.toLocaleUpperCase()} staked in our contract: {thousands_separators(totalDaiStaked)} <br />
         You are staking: {thousands_separators(userStakedDai)} <br />
-              </>
+            </>
         ======== ZOMBIE REWARDS ========<br />
-              <>Your available rewards are: {thousands_separators(userEarnedDai)}<br />
-        APY: {DaiAPY}%<br/>
-        {currentCoinPrice === '1' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(totalwrapped / totalDai))}`}
-        {currentCoinPrice === '2' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(totalDaiwrapped / totalDai))}`}
-        {farm.id === 'shrimp' || farm.id === 'dice' ? `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(currentstatPrice))}` : ''}
-        {farm.id === 'dai' && `TVL: $${thousands_separators(Number(totalDaiStaked)*Number(1))}` }
-        </>
-            </CardContent>
-          </Card>
-        </StyledCardWrapper>
-}
+            <>Your available rewards are: {thousands_separators(userEarnedDai)}<br />
+              <span style={{ fontWeight: 900 }}>APY: {DaiAPY}%</span><br />
+            </>
+          </CardContent>
+        </Card>
+      </StyledCardWrapper>
     </>
   )
 }
