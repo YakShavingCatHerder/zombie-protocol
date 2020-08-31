@@ -63,12 +63,14 @@ const Stats: React.FC<StatsProps> = ({
   }, [setcirculating])
 
   useEffect(() => {
+
+
     axios.get('https://api.coingecko.com/api/v3/simple/price?ids=Cethereum%2Czombie-finance&vs_currencies=usd').then((res) => {
-      if (res.status === 200) {
-        setCurrentPrice(Number(res.data['zombie-finance'].usd))
-      }
-      circulation()
+      
     })
+
+
+
   }, [setCurrentPrice])
 
   return (

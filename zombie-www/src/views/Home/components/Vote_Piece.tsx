@@ -106,7 +106,7 @@ const Voter: React.FC<VoteProps> = () => {
               display: 'flex',
             }}>
               <StyledTitle>
-                <div>{(Number(totalVotes)).toLocaleString()}</div>
+                <div>{"24585.841"}</div>
               </StyledTitle>
               <StyledDenominator>
                 <div>{`/ ${(306760 * Number(circulating)).toFixed(2)}`}</div>
@@ -126,7 +126,7 @@ const Voter: React.FC<VoteProps> = () => {
           </StyledCheckpoint>
         </StyledCheckpoints>
         <StyledMeter>
-          <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (Number(totalVotes) * 1.5 )/ (306760 * Number(circulating))} />
+          <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (24585.841 / (306760 * Number(circulating)))} />
         </StyledMeter>
         <Spacer />
         {!canVote ? <Button text="Yes" onClick={y_vote} /> : <Button disabled={true} text="Thank you for voting" />}
