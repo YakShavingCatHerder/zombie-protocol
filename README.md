@@ -11,7 +11,7 @@ Zombie is a social experiment game, you can see the true side of humanity only a
 
 The $ZOMBIE token combines a simplified version of Ampleforth’s economic policy with YFI’s distribution mechanism, finally we added PUBG’s poison circle mechanism! Do you think your companion will save you?
 
-**the opening date of the doomsday clock is: 2020/09/21 10:00:00 (UTC+0)**
+**the opening date of the doomsday clock is: 2020/09/07 10:00:00 (UTC+0)**
 
 > $Zombie price >= $100 - After that day, if the price of $Zombie is more than $100, nothing will happen.
 
@@ -112,14 +112,14 @@ There is no mint function in $ZOMBIE ERC20, the total amount of $zombie is fixed
 * Week 2: Tokens Distrubuted(8/31 ~ 9/7)
 * Week 3: Tokens Distrubuted(9/7 ~ 9/14)
 * Week 4: Tokens Distrubuted(9/14 ~ 9/21)
-* Week 5: Tokens Distrubuted + Doomsday clock starts to count(9/21 ~ 9/28)
+* Week 5: Tokens Distrubuted(9/21 ~ 9/28)
 * Week 6: Tokens Distrubuted(9/28 ~ 10/5)
 * Week 7: Tokens Distrubuted(10/5 ~ 10/12)
 * Week 8: Tokens Distrubuted(10/12 ~ 10/19)
 * Week 9: Tokens Distrubuted(10/19 ~ 10/26)
 * Week 10: Tokens Distrubuted(10/26 ~ 11/2)
 
-***Doomsday clock starts to count at: 2020/09/21 10:00:00 (UTC+0)**
+***Doomsday clock starts to count at: 2020/09/07 10:00:00 (UTC+0)**
 
 ## Governance
 ? There is no government, the world is destroyed...
