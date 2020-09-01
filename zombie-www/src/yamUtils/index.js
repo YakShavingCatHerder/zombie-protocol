@@ -237,6 +237,19 @@ export const get_canVote = async (provider, account) => {
       })
   }
 }
+//
+//see if user has voted before or not 
+//
+export const get_canVote2 = async (provider, account) => {
+  if (provider) {
+    const web3 = new Web3(provider);
+    const my_proposal = new web3.eth.Contract(ProposalJson.abi, ProposalJson.networks[1].address);
+    return my_proposal.methods
+      .vote_content(account, 1).call().then(function (events) {
+        return events
+      })
+  }
+}
 //after adding more parameters update the id to be a param 
 //which is unique to the voting option
 export const get_y_n_vote = async (provider, account) => {

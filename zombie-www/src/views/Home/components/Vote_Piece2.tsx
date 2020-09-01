@@ -20,6 +20,7 @@ import {
   getScalingFactor,
   getVotes_piece2,
   get_y_n_vote2,
+  get_canVote2,
   get_counted_votes
 } from '../../../yamUtils'
 
@@ -31,9 +32,8 @@ const WARNING_TIMESTAMP = 1598080645351
 
 const Voter: React.FC<VoteProps> = () => {
   const [totalVotes, setTotalVotes] = useState(new Number)
-  // const [scalingFactor, setScalingFactor] = useState(new BigNumber(1))
-  // const [delegated, setDelegated] = useState(false)
-  // const [delegatedBalance, setDelegatedBalance] = useState(new BigNumber(0))
+  const [canVote, setCanVote] = useState(true);
+  const [circulating, setcirculating] = useState(new Number)
 
   const { account, ethereum } = useWallet()
   const yam = useYam()
@@ -49,6 +49,26 @@ const Voter: React.FC<VoteProps> = () => {
     )
   }
 
+  const circulation = useCallback(() => {
+    const now_time = Date.now();
+    const now_timestamp = now_time / 1000
+    if (now_timestamp < 1598529600) {
+      var total_reveal_percent = (now_timestamp - 1598270400) * 2 / (60 * 60 * 24 * 73)
+      setcirculating(Number(total_reveal_percent))
+    } else if (now_timestamp < 1604318400) {
+      var total_reveal_percent = ((1598529600 - 1598270400) * 2 + (now_timestamp - 1598529600)) / (60 * 60 * 24 * 73)
+      setcirculating(Number(total_reveal_percent))
+    } else {
+      var total_reveal_percent = 306760
+      setcirculating(Number(total_reveal_percent))
+    }
+  }, [setcirculating])
+
+  const getCanVote = useCallback(async () => {
+    const canVote = await get_canVote2(ethereum, account)
+    setCanVote(canVote)
+  }, [ethereum, account])
+
   const y_vote = useCallback(() => {
     get_y_n_vote2(ethereum, account)
   }, [ethereum, account])
@@ -62,6 +82,8 @@ const Voter: React.FC<VoteProps> = () => {
   useEffect(() => {
     if (yam) {
       fetchVotes()
+      circulation()
+      getCanVote()
     }
     const refetch = setInterval(fetchVotes, 10000)
     return () => clearInterval(refetch)
@@ -89,47 +111,31 @@ const Voter: React.FC<VoteProps> = () => {
               display: 'flex',
             }}>
               <StyledTitle>
-                <div>{(Number(totalVotes) * 1.5).toLocaleString()}</div>
+                <div>{(Number(totalVotes)).toLocaleString()}</div>
               </StyledTitle>
               <StyledDenominator>
-                <div>{`/ 224,746`}</div>
+              <div>{`/ ${(306760 * Number(circulating)).toFixed(2)}`}</div>
               </StyledDenominator>
             </div>
-            {/* <div style={{
-              alignItems: 'baseline',
-              display: 'flex',
-            }}>
-              <div style={{ fontSize: 12 }}>{`${Number(totalVotes.multipliedBy(scalingFactor).toFixed(0)).toLocaleString()}`}</div>
-              <div style={{
-                  fontSize: 12,
-                  marginTop: 4,
-                  marginLeft: 4,
-                }}>{`/ ${Number(new BigNumber(160000).multipliedBy(scalingFactor).toFixed(0)).toLocaleString()} YAM`}</div>
-            </div> */}
             <br />
             <br />
           </StyledCenter>
         </div>
         <Spacer />
         <StyledCheckpoints>
-          <StyledCheckpoint left={140000 / METER_TOTAL * 100}>
+          <StyledCheckpoint left={((306760 * Number(circulating)) / 2) / (306760 * Number(circulating)) * 100}>
             <StyledCheckpointText left={-50}>
               <div>Proposal Passed</div>
-              <div>100,000</div>
+              <div>{((306760 * Number(circulating))/2).toFixed(2)}</div>
             </StyledCheckpointText>
           </StyledCheckpoint>
         </StyledCheckpoints>
         <StyledMeter>
-          <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (Number(totalVotes) * 1.5)/ 224746} />
+          <StyledMeterInner width={(Math.max(1000) / 1000 * 100) * (Number(totalVotes)) / 224746} />
         </StyledMeter>
         <Spacer />
-        <Button text="Yes" onClick={y_vote} />
-        {/* ) : (
-          <div>
-            {/* <StyledDelegatedCount>Delegating: {Number(delegatedBalance.multipliedBy(scalingFactor).toFixed(0)).toLocaleString()} YAM</StyledDelegatedCount> 
-            <StyledThankYou>Thank you for your vote.</StyledThankYou>
-          </div>
-        )} */}
+        {!canVote ? <Button text="Yes" onClick={y_vote} /> : <Button disabled={true} text="Thank you for voting" />}
+
         <div style={{
           margin: '0 auto',
           width: 512,
@@ -137,24 +143,20 @@ const Voter: React.FC<VoteProps> = () => {
           opacity: 0.6,
         }}>
           <p>Proposal 2, </p>
-          <p>🚨 New balancer liquidity pool 🚨</p>
-          <p>✅Bal-Shrimp-Dai Pool 95: Shrimp 95% /Dai 5%<br />
-             ✅Bal-Shrimp-Dai Pool 80: Shrimp 80%/Dai 20%<br/>
-
-             Circulating Shrimp Supply：224,746 Shrimp<br/>
-Weekly expected inflation：3%<br/>
-Advanced Pool Period: Unlimited<br/>
-Bal-Shrimp-Dai Pool 95：4494.92 Shrimp/Weekly<br/>
-Bal-Shrimp-Dai Pool 80：2247.46 Shrimp/Weekly
-</p>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop: 32,
-        }}>
-          <StyledLink target="__blank" href="https://github.com/shrimp-finance/shrimp-protocol/wiki/%F0%9F%9A%A8-Shrimp---Proposal-2---New-balancer-liquidity-pool">More Info</StyledLink>
-        </div>
+          <p>🚨 Suspend all activities of the zombie army until dice tokens start mining. 🚨</p>
+          <p>
+            1. Suspend all mining until Dice also starts Farming.<br/>
+            2. Reset the rebase target price to $10.<br/>
+            3. Change Rebase to not only rebase but also debase.<br/> 
+          </p>
+          {/* <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginTop: 32,
+          }}>
+            <StyledLink target="__blank" href="https://github.com/shrimp-finance/shrimp-protocol/wiki/%F0%9F%9A%A8-Shrimp---Proposal-2---New-balancer-liquidity-pool">More Info</StyledLink>
+          </div> */}
         </div>
       </CardContent>
     </Card >

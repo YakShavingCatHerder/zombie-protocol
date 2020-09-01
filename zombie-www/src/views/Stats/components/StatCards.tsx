@@ -281,6 +281,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       callPrice()
     }
 
+      
 
   }, [])
 
