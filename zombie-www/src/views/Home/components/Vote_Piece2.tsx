@@ -145,9 +145,10 @@ const Voter: React.FC<VoteProps> = () => {
           <p>Proposal 2, </p>
           <p>🚨 Suspend all activities of the zombie army until dice tokens start farming. 🚨</p>
           <p>
-            1. Suspend all mining until Dice also starts Farming.<br/>
+            1. Suspend all farming until Dice also starts Farming. (Except DAI_ZOMBIE_UNISWAP_LP pool)<br/>
             2. Reset the rebase target price to $10.<br/>
-            3. Change Rebase to not only debase but also rebase.<br/> 
+            3. Change Rebase to not only debase but also rebase.<br/> <br/>
+            <span style={{color: "red"}}>⚠️ The current scheduled farming suspension date is: 2020/09/04 10:00:00 (UTC+0) Please withdraw your tokens before the suspension.</span>
           </p>
           {/* <div style={{
             display: 'flex',
