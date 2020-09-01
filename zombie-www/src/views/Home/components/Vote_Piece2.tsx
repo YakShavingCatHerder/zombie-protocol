@@ -28,7 +28,7 @@ interface VoteProps {
 }
 
 const METER_TOTAL = 280000
-const WARNING_TIMESTAMP = 1598080645351
+const WARNING_TIMESTAMP = 1599213600000
 
 const Voter: React.FC<VoteProps> = () => {
   const [totalVotes, setTotalVotes] = useState(new Number)
