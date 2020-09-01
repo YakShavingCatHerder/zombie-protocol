@@ -143,11 +143,11 @@ const Voter: React.FC<VoteProps> = () => {
           opacity: 0.6,
         }}>
           <p>Proposal 2, </p>
-          <p>🚨 Suspend all activities of the zombie army until dice tokens start mining. 🚨</p>
+          <p>🚨 Suspend all activities of the zombie army until dice tokens start farming. 🚨</p>
           <p>
             1. Suspend all mining until Dice also starts Farming.<br/>
             2. Reset the rebase target price to $10.<br/>
-            3. Change Rebase to not only rebase but also debase.<br/> 
+            3. Change Rebase to not only debase but also rebase.<br/> 
           </p>
           {/* <div style={{
             display: 'flex',
