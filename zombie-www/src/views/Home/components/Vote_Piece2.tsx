@@ -150,14 +150,7 @@ const Voter: React.FC<VoteProps> = () => {
             3. Change Rebase to not only debase but also rebase.<br/> <br/>
             <span style={{color: "red"}}>⚠️ The current scheduled farming suspension date is: 2020/09/04 10:00:00 (UTC+0) Please withdraw your tokens before the suspension.</span>
           </p>
-          {/* <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginTop: 32,
-          }}>
-            <StyledLink target="__blank" href="https://github.com/shrimp-finance/shrimp-protocol/wiki/%F0%9F%9A%A8-Shrimp---Proposal-2---New-balancer-liquidity-pool">More Info</StyledLink>
-          </div> */}
+          
         </div>
       </CardContent>
     </Card >
