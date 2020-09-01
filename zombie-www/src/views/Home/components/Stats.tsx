@@ -14,6 +14,7 @@ import Label from '../../../components/Label'
 import { getDisplayBalance } from '../../../utils/formatBalance'
 import BigNumber from 'bignumber.js'
 
+import AdButton from '../../../components/TopBar/components/AdvertisementFormButton';
 
 import useYam from '../../../hooks/useYam'
 
@@ -95,17 +96,15 @@ const Stats: React.FC<StatsProps> = ({
         <CardContent>
           <StyledStat>
           {!account ? (
-           <>
-           <StyledValue>
-             {"unlock wallet"}
-            </StyledValue>
-         </>
+           <div style={{marginBottom: '5px'}}>
+           <AdButton />
+         </div>
           ) : (
             <StyledValue>
              <TVL/>
             </StyledValue>
           )}
-            <Label text="Total Locked Value" />
+            <Label text="Total Value Locked" />
           </StyledStat>
         </CardContent>
       </Card>

@@ -20,9 +20,13 @@ const WorldCards: React.FC = () => {
   const rows = farms.reduce<Farm[][]>((farmRows, farm) => {
     const newFarmRows = [...farmRows]
     if (newFarmRows[newFarmRows.length - 1].length === 3) {
-      newFarmRows.push([farm])
+      if(farm.sort === 0 || farm.sort === 1){
+        newFarmRows.push([farm])
+      }
     } else {
+      if(farm.sort === 0 || farm.sort === 1){
       newFarmRows[newFarmRows.length - 1].push(farm)
+    }
     }
     return newFarmRows
   }, [[]])
@@ -70,7 +74,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
   return (
     <>
-      {farm.sort === 0 || farm.sort === 1 ?
         <StyledCardWrapper>
           <Card>
             <CardContent>
@@ -104,9 +107,6 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
             </CardContent>
           </Card>
         </StyledCardWrapper>
-        :
-        <></>
-      }
     </>
   )
 }
